@@ -1,0 +1,8 @@
+<image
+  wx:if="{{src}}"
+  class="bd-icon"
+  src="{{src}}"
+  mode="aspectFit"
+  style="width:{{size}}rpx;height:{{size}}rpx;"
+/>
+<view wx:else class="bd-icon bd-icon-missing" style="width:{{size}}rpx;height:{{size}}rpx;"></view>

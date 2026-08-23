@@ -1,0 +1,10 @@
+<view class="bd-page mesh {{padded ? 'bd-page-padded' : ''}} {{dockSpace ? 'dock-space' : ''}}">
+  <view wx:if="{{chrome}}" class="bd-page-chrome">
+    <view class="bd-page-title-wrap">
+      <view class="bd-page-accent"></view>
+      <view class="bd-page-title">{{title}}</view>
+    </view>
+    <view class="bd-page-extra"><slot name="chrome" /></view>
+  </view>
+  <slot />
+</view>

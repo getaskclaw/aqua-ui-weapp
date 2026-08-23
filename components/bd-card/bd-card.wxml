@@ -1,0 +1,5 @@
+<view class="glass bd-card bd-card-{{padding}}">
+  <view wx:if="{{title}}" class="bd-card-title">{{title}}</view>
+  <slot wx:else name="title" />
+  <slot />
+</view>

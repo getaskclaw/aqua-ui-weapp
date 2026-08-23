@@ -1,0 +1,14 @@
+/* bd-card:玻璃材质来自 .glass(apply-shared),这里只管留白与标题。 */
+.bd-card {
+  margin-bottom: 24rpx;
+}
+
+.bd-card-normal { padding: 32rpx; }
+.bd-card-compact { padding: 20rpx 24rpx; }
+.bd-card-flush { padding: 0; }
+
+.bd-card-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  margin-bottom: 16rpx;
+}

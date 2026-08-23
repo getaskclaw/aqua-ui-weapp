@@ -1,0 +1,62 @@
+/* bd-photo-uploader:虚线添加框(玻璃体系外的稳定浅底,户外可读),
+   九宫格三列等比,删除角标 danger 实底圆点。 */
+.bd-uploader-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.bd-uploader-cell {
+  position: relative;
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.bd-uploader-img {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 8rpx;
+}
+
+.bd-uploader-del {
+  position: absolute;
+  top: -12rpx;
+  right: -12rpx;
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  background: var(--danger);
+  color: #ffffff;
+  text-align: center;
+  line-height: 44rpx;
+  font-size: 32rpx;
+}
+
+.bd-uploader-add {
+  width: 180rpx;
+  height: 180rpx;
+  box-sizing: border-box;
+  border: 2rpx dashed var(--sub);
+  border-radius: 8rpx;
+  background: #f4f6f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+}
+
+.bd-uploader-add-hover {
+  background: #e8edf1;
+}
+
+.bd-uploader-count {
+  font-size: 24rpx;
+  color: var(--sub);
+}
+
+.bd-uploader-full {
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  color: var(--sub);
+}

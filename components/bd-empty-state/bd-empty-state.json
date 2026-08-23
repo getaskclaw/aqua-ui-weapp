@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "bd-icon": "../bd-icon/bd-icon",
+    "bd-button": "../bd-button/bd-button"
+  }
+}

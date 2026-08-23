@@ -1,0 +1,7 @@
+<view class="{{card ? 'glass bd-skel-card' : ''}}">
+  <view wx:for="{{rowList}}" wx:key="index" class="bd-skel-row">
+    <view class="bd-skel-block" style="width:60%;"></view>
+    <view class="bd-skel-block" style="width:90%;margin-top:16rpx;"></view>
+    <view class="bd-skel-block" style="width:40%;margin-top:16rpx;"></view>
+  </view>
+</view>

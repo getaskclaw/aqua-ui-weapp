@@ -1,0 +1,55 @@
+/* Aqua UI WeApp 设计令牌与材质 —— 实测对比度定色,详见 docs/design-tokens.md */
+page {
+  --navy: #162455;
+  --navy-deep: #091444;
+  --aqua: #13ecf3;
+  --p500: #12bcd0;
+  --p600: #0aa0b4;
+  --p700: #088896;
+  --bg: #eef4f7;
+  --card: rgba(255, 255, 255, 0.45);
+  --ink: #0b2230;
+  --sub: #41626f;
+  --ok: #1c7c54;
+  --warn: #b3541e;
+  --danger: #b00020;
+
+  background: var(--bg);
+  font-size: 32rpx;
+  color: var(--ink);
+}
+
+.mesh 浓渐变网底:三团 radial-gradient(青 #7fdcee / 薄荷 #9fe8d8 /
+   雾蓝 #b9d9f5)+ 线性浅底。玻璃卡需要网底「有东西可透」;
+   内容区永远浅底深字(户外强光约束)。 */
+.mesh {
+  min-height: 100vh;
+  box-sizing: border-box;
+  background:
+    radial-gradient(90% 45% at 85% -5%, #7fdcee 0%, transparent 60%),
+    radial-gradient(80% 40% at -15% 25%, #9fe8d8 0%, transparent 65%),
+    radial-gradient(90% 50% at 60% 115%, #b9d9f5 0%, transparent 60%),
+    linear-gradient(160deg, #eaf6f8 0%, #e3f0f4 50%, #e9f3ef 100%);
+}
+
+.glass 磨砂玻璃卡:半透白底 + 背景模糊/饱和 + 高光描边 + 软阴影。
+   兼容性:旧机不支持 backdrop-filter 时该声明被忽略,自然降级为
+   半透明白卡(--card 自带 0.45 透明度),不垫 fallback 色块。
+   .card 与 .glass 同材质(纯样式替换,语义不变),.card 另带
+   卡片留白/间距。 */
+.glass,
+.card {
+  background: var(--card);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 26rpx;
+  box-shadow:
+    0 12rpx 32rpx rgba(14, 70, 90, 0.12),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.85);
+}
+
+.dock-space {
+  padding-bottom: 240rpx;
+}
+

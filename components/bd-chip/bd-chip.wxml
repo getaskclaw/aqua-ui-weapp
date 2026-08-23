@@ -1,0 +1,1 @@
+<view class="bd-chip bd-chip-{{semantic}}">{{text}}<slot /></view>

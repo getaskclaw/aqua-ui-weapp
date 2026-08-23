@@ -1,0 +1,11 @@
+.bd-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 未注册图标名:虚线空盒,视觉验收时一眼可见,不静默吞掉 */
+.bd-icon-missing {
+  box-sizing: border-box;
+  border: 1rpx dashed rgba(176, 0, 32, 0.6);
+  border-radius: 8rpx;
+}

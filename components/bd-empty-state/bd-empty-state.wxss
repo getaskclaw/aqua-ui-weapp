@@ -1,0 +1,24 @@
+.bd-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 96rpx 48rpx;
+}
+
+.bd-empty-title {
+  margin-top: 24rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.bd-empty-desc {
+  margin-top: 12rpx;
+  font-size: 28rpx;
+  color: var(--sub);
+  text-align: center;
+}
+
+.bd-empty-action {
+  margin-top: 32rpx;
+}

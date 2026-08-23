@@ -1,0 +1,57 @@
+/* 悬浮 dock(WO-010):fixed 底部胶囊,玻璃材质(比卡片更实一档,
+   便于压住滚动内容)。旧机无 backdrop-filter 时自然降级为半透白底,
+   不垫 fallback 色块。 */
+.dock {
+  position: fixed;
+  left: 32rpx;
+  right: 32rpx;
+  bottom: 18rpx;
+  /* iPhone 横条安全区:常量+环境变量双写,后者覆盖前者 */
+  bottom: calc(18rpx + constant(safe-area-inset-bottom));
+  bottom: calc(18rpx + env(safe-area-inset-bottom));
+  height: 140rpx;
+  z-index: 99;
+  display: flex;
+  align-items: stretch;
+  padding: 12rpx;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(26px) saturate(1.5);
+  -webkit-backdrop-filter: blur(26px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 52rpx;
+  box-shadow:
+    0 16rpx 40rpx rgba(14, 70, 90, 0.2),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.9);
+}
+
+.dock-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rpx;
+  border-radius: 40rpx;
+}
+
+.dock-item-hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* 选中态:青色渐变底胶囊(浅底约束下用半透青,不用 --aqua 实色) */
+.dock-item-on {
+  background: linear-gradient(135deg, rgba(18, 188, 208, 0.28), rgba(10, 160, 180, 0.2));
+}
+
+/* 图标为 bd-icon 命名 SVG(WO-011),尺寸/颜色由 dock.wxml 属性传入 */
+
+.dock-label {
+  font-size: 22rpx;
+  font-weight: 600;
+  color: var(--sub);
+}
+
+.dock-item-on .dock-label {
+  color: var(--p700);
+}

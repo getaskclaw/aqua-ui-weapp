@@ -1,0 +1,18 @@
+<!-- 悬浮 dock:玻璃胶囊底栏。图标为 bd-icon 命名 SVG(WO-011)。 -->
+<view class="dock">
+  <view
+    wx:for="{{items}}"
+    wx:key="key"
+    class="dock-item {{active === item.key ? 'dock-item-on' : ''}}"
+    data-url="{{item.url}}"
+    bindtap="open"
+    hover-class="dock-item-hover"
+  >
+    <bd-icon
+      name="{{item.icon}}"
+      size="{{44}}"
+      color="{{active === item.key ? '#088896' : '#41626f'}}"
+    />
+    <text class="dock-label">{{item.label}}</text>
+  </view>
+</view>

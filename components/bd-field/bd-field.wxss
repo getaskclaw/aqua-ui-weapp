@@ -1,0 +1,24 @@
+.bd-field {
+  margin-bottom: 8rpx;
+}
+
+.bd-field-label {
+  font-weight: 600;
+  margin: 24rpx 0 8rpx;
+}
+
+.bd-field-star {
+  color: var(--danger);
+}
+
+.bd-field-hint {
+  color: var(--sub);
+  font-size: 26rpx;
+  margin-top: 8rpx;
+}
+
+.bd-field-error {
+  color: var(--danger);
+  font-size: 28rpx;
+  margin-top: 8rpx;
+}

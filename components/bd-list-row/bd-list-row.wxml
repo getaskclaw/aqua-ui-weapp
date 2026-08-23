@@ -1,0 +1,11 @@
+<view class="bd-row" hover-class="bd-row-hover" bindtap="onTap">
+  <view wx:if="{{icon}}" class="bd-row-icon">
+    <bd-icon name="{{icon}}" size="{{44}}" color="#0aa0b4" />
+  </view>
+  <view class="bd-row-main">
+    <view class="bd-row-title">{{title}}</view>
+    <view wx:if="{{desc}}" class="bd-row-desc">{{desc}}</view>
+  </view>
+  <view class="bd-row-status"><slot name="status" /></view>
+  <bd-icon wx:if="{{arrow}}" name="chevron" size="{{32}}" color="#41626f" />
+</view>

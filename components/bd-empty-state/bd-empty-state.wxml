@@ -1,0 +1,8 @@
+<view class="bd-empty">
+  <bd-icon name="{{view.icon}}" size="{{96}}" color="#41626f" />
+  <view class="bd-empty-title">{{view.title}}</view>
+  <view wx:if="{{view.desc}}" class="bd-empty-desc">{{view.desc}}</view>
+  <view wx:if="{{view.actionText}}" class="bd-empty-action">
+    <bd-button variant="ghost" size="md" bindtap="onAction">{{view.actionText}}</bd-button>
+  </view>
+</view>

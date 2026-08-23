@@ -1,0 +1,29 @@
+<view class="bd-uploader">
+  <view class="bd-uploader-grid">
+    <view wx:for="{{photos}}" wx:key="index" class="bd-uploader-cell">
+      <image
+        src="{{item}}"
+        mode="aspectFill"
+        class="bd-uploader-img"
+        data-index="{{index}}"
+        bindtap="preview"
+      />
+      <view
+        wx:if="{{!disabled}}"
+        class="bd-uploader-del"
+        data-index="{{index}}"
+        catchtap="removePhoto"
+      >×</view>
+    </view>
+    <view
+      wx:if="{{canAddPhotos && !disabled}}"
+      class="bd-uploader-add"
+      hover-class="bd-uploader-add-hover"
+      bindtap="addPhotos"
+    >
+      <bd-icon name="camera" size="{{56}}" color="#41626f" />
+      <text class="bd-uploader-count">{{countLabel}}</text>
+    </view>
+  </view>
+  <view wx:if="{{!canAddPhotos}}" class="bd-uploader-full">已达上限 {{max}} 张</view>
+</view>

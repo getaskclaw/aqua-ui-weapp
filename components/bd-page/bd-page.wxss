@@ -1,0 +1,53 @@
+/* bd-page:mesh 网底与 .dock-space 复用 app.wxss(apply-shared),
+   本文件只定义安全区留白与 navy chrome 标题条。 */
+.bd-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 内容留白 + 底部安全区(常量+环境变量双写,后者覆盖前者) */
+.bd-page-padded {
+  padding: 32rpx;
+  padding-bottom: calc(32rpx + constant(safe-area-inset-bottom));
+  padding-bottom: calc(32rpx + env(safe-area-inset-bottom));
+}
+
+/* navy chrome 标题条:深底白字,--aqua 亮青仅作强调条(深底合规) */
+.bd-page-chrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 24rpx;
+  padding: 30rpx 32rpx;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: #ffffff;
+}
+
+/* padded 形态下 chrome 吃掉内容留白,整幅贴边 */
+.bd-page-padded .bd-page-chrome {
+  margin: -32rpx -32rpx 24rpx;
+}
+
+.bd-page-title-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.bd-page-accent {
+  width: 8rpx;
+  height: 36rpx;
+  border-radius: 4rpx;
+  background: var(--aqua);
+  margin-right: 18rpx;
+}
+
+.bd-page-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  letter-spacing: 1rpx;
+}
+
+.bd-page-extra {
+  display: flex;
+  align-items: center;
+}

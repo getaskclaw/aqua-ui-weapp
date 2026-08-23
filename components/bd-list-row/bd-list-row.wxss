@@ -1,0 +1,46 @@
+.bd-row {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 26rpx 28rpx;
+  box-sizing: border-box;
+}
+
+.bd-row-hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.bd-row-icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+}
+
+.bd-row-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.bd-row-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bd-row-desc {
+  font-size: 26rpx;
+  color: var(--sub);
+  margin-top: 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bd-row-status {
+  flex: none;
+  display: flex;
+  align-items: center;
+}

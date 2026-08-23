@@ -1,0 +1,8 @@
+<view class="bd-field">
+  <view wx:if="{{label}}" class="bd-field-label">
+    <text wx:if="{{required}}" class="bd-field-star">* </text>{{label}}
+  </view>
+  <slot />
+  <view wx:if="{{error}}" class="bd-field-error">{{error}}</view>
+  <view wx:elif="{{hint}}" class="bd-field-hint">{{hint}}</view>
+</view>

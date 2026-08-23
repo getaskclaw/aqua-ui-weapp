@@ -1,0 +1,36 @@
+/* bd-chip:语义色取自 app.wxss token(--ok/--warn/--p600/--sub/--danger),
+   背景为同色 12% 透明底,文字实色保对比度。 */
+.bd-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6rpx 20rpx;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.bd-chip-ok {
+  color: var(--ok);
+  background: rgba(28, 124, 84, 0.12);
+}
+
+.bd-chip-warn {
+  color: var(--warn);
+  background: rgba(179, 84, 30, 0.12);
+}
+
+.bd-chip-info {
+  color: var(--p600);
+  background: rgba(18, 188, 208, 0.16);
+}
+
+.bd-chip-neutral {
+  color: var(--sub);
+  background: rgba(65, 98, 111, 0.12);
+}
+
+.bd-chip-danger {
+  color: var(--danger);
+  background: rgba(176, 0, 32, 0.12);
+}
