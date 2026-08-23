@@ -1,0 +1,5 @@
+<view class="bd-search {{disabled ? 'bd-search-disabled' : ''}}">
+  <bd-icon name="search" size="{{34}}" color="#607b86" />
+  <input class="bd-search-input" value="{{value}}" placeholder="{{placeholder}}" disabled="{{disabled}}" confirm-type="search" bindinput="input" bindconfirm="submit" />
+  <view wx:if="{{clearable && value}}" class="bd-search-clear" bindtap="clear">×</view>
+</view>

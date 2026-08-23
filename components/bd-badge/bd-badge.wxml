@@ -1,0 +1,4 @@
+<view class="bd-badge-wrap">
+  <slot />
+  <view wx:if="{{!hidden && (dot || value !== '')}}" class="bd-badge bd-badge-{{semantic}} {{dot ? 'bd-badge-dot' : ''}}">{{displayValue}}</view>
+</view>

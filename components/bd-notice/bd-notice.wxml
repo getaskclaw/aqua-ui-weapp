@@ -1,0 +1,6 @@
+<view wx:if="{{visible}}" class="bd-notice bd-notice-{{semantic}}">
+  <bd-icon name="{{icon}}" size="{{32}}" color="currentColor" />
+  <text class="bd-notice-text">{{text}}</text>
+  <text wx:if="{{actionText}}" class="bd-notice-action" bindtap="action">{{actionText}}</text>
+  <view wx:if="{{closable}}" class="bd-notice-close" bindtap="close">×</view>
+</view>

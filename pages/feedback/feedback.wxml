@@ -1,0 +1,74 @@
+<bd-page chrome title="反馈与浮层" subtitle="状态 · 过程 · 对话" topInset="{{topInset}}" dockSpace reducedMotion="{{reducedMotion}}">
+  <view slot="chrome" class="feedback-count">11 项</view>
+
+  <view class="feedback-intro">
+    <view class="eyebrow">状态沟通</view>
+    <view class="feedback-title">重要变化，应当被温柔看见。</view>
+    <view class="feedback-copy">从轻量提醒到模态对话，为每一种系统状态提供合适的声音和层级。</view>
+    <view class="motion-control"><bd-switch checked="{{reducedMotion}}" label="减少动态效果" desc="保留状态变化，关闭位移与缩放" bindchange="onReducedMotion" /></view>
+  </view>
+
+  <view class="feedback-section">
+    <view class="feedback-head"><view><view class="feedback-index">01</view><view class="section-title">轻量提醒</view></view><view class="feedback-note">即时反馈</view></view>
+    <view class="feedback-stack">
+      <bd-notice text="新版本设计令牌已经同步完成" semantic="ok" icon="check" actionText="查看" bindaction="notify" />
+      <bd-notice text="有两项内容等待补充，请及时处理" semantic="warn" icon="bell" closable />
+      <bd-alert title="隐私保护已开启" desc="敏感字段会在离开当前页面后自动隐藏。" semantic="info" icon="shield" />
+      <bd-alert title="需要重新连接" desc="网络恢复后可以继续上一次操作。" semantic="danger" icon="warn" closable />
+    </view>
+  </view>
+
+  <view class="feedback-section">
+    <view class="feedback-head"><view><view class="feedback-index">02</view><view class="section-title">展开与解释</view></view><view class="feedback-note">渐进披露</view></view>
+    <bd-accordion items="{{accordionItems}}" openKeys="{{accordionOpen}}" reducedMotion="{{reducedMotion}}" bindchange="onAccordion" />
+  </view>
+
+  <view class="feedback-section">
+    <view class="feedback-head"><view><view class="feedback-index">03</view><view class="section-title">过程与时间</view></view><view class="feedback-note">进度叙事</view></view>
+    <bd-card tone="solid">
+      <bd-steps items="{{steps}}" current="{{currentStep}}" />
+      <bd-divider text="最近动态" />
+      <bd-timeline items="{{timelineItems}}" />
+    </bd-card>
+  </view>
+
+  <view class="feedback-section">
+    <view class="feedback-head"><view><view class="feedback-index">04</view><view class="section-title">等待与倒计时</view></view><view class="feedback-note">时间反馈</view></view>
+    <bd-card tone="tint">
+      <view class="waiting-row">
+        <bd-loading text="正在安全同步" />
+        <bd-loading text="请稍候" type="dots" vertical />
+      </view>
+      <bd-divider text="剩余时间" />
+      <view class="countdown-row"><bd-countdown seconds="{{3661}}" /><view><view class="countdown-title">会话保护</view><view class="countdown-desc">到期后需要重新验证</view></view></view>
+    </bd-card>
+  </view>
+
+  <view class="feedback-section">
+    <view class="feedback-head"><view><view class="feedback-index">05</view><view class="section-title">结果状态</view></view><view class="feedback-note">任务收束</view></view>
+    <bd-card tone="glass" padding="flush">
+      <bd-result status="success" title="全部处理完成" desc="十二项内容均已通过检查，可以安全进入下一阶段。" actionText="查看结果" reducedMotion="{{reducedMotion}}" bindaction="notify" />
+    </bd-card>
+  </view>
+
+  <view class="feedback-section last-feedback-section">
+    <view class="feedback-head"><view><view class="feedback-index">06</view><view class="section-title">对话与浮层</view></view><view class="feedback-note">聚焦操作</view></view>
+    <bd-card tone="ocean">
+      <view class="overlay-copy">将关键决策从内容层抬升，同时保留明确的取消路径。</view>
+      <view class="overlay-actions">
+        <bd-button size="md" bindtap="openModal">打开对话框</bd-button>
+        <bd-button variant="ghost" size="md" bindtap="openSheet">打开操作面板</bd-button>
+      </view>
+      <view class="tooltip-row">
+        <text>不确定这个选项？</text>
+        <bd-tooltip content="点击目标即可显示简短解释，再次点击关闭。"><bd-chip semantic="info" text="查看说明" /></bd-tooltip>
+      </view>
+    </bd-card>
+  </view>
+
+  <bd-modal visible="{{modalVisible}}" title="确认提交这次修改？" desc="提交后将立即同步给所有协作者。" confirmText="确认提交" cancelText="稍后处理" reducedMotion="{{reducedMotion}}" bindcancel="closeModal" bindconfirm="confirmModal">
+    <bd-notice text="所有更改均会保留历史记录" semantic="info" icon="shield" />
+  </bd-modal>
+  <bd-action-sheet visible="{{sheetVisible}}" title="选择接下来的操作" actions="{{sheetActions}}" reducedMotion="{{reducedMotion}}" bindcancel="closeSheet" bindselect="selectSheet" />
+  <bd-dock active="feedback" navItems="{{navItems}}" reducedMotion="{{reducedMotion}}" />
+</bd-page>

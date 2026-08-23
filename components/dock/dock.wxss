@@ -1,57 +1,30 @@
-/* 悬浮 dock(WO-010):fixed 底部胶囊,玻璃材质(比卡片更实一档,
-   便于压住滚动内容)。旧机无 backdrop-filter 时自然降级为半透白底,
-   不垫 fallback 色块。 */
 .dock {
   position: fixed;
-  left: 32rpx;
-  right: 32rpx;
-  bottom: 18rpx;
-  /* iPhone 横条安全区:常量+环境变量双写,后者覆盖前者 */
-  bottom: calc(18rpx + constant(safe-area-inset-bottom));
-  bottom: calc(18rpx + env(safe-area-inset-bottom));
-  height: 140rpx;
+  overflow: hidden;
+  left: 26rpx;
+  right: 26rpx;
+  bottom: 16rpx;
+  bottom: calc(16rpx + constant(safe-area-inset-bottom));
+  bottom: calc(16rpx + env(safe-area-inset-bottom));
+  height: 126rpx;
   z-index: 99;
   display: flex;
-  align-items: stretch;
-  padding: 12rpx;
-  box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(26px) saturate(1.5);
-  -webkit-backdrop-filter: blur(26px) saturate(1.5);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 52rpx;
-  box-shadow:
-    0 16rpx 40rpx rgba(14, 70, 90, 0.2),
-    inset 0 1rpx 0 rgba(255, 255, 255, 0.9);
-}
-
-.dock-item {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 4rpx;
-  border-radius: 40rpx;
+  padding: 10rpx;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, rgba(255,255,255,.78), rgba(232,248,248,.68));
+  -webkit-backdrop-filter: blur(34px) saturate(1.65);
+  backdrop-filter: blur(34px) saturate(1.65);
+  border: 1rpx solid var(--glass-edge);
+  border-radius: 42rpx;
+  box-shadow: 0 28rpx 70rpx rgba(4,23,36,.20), 0 3rpx 12rpx rgba(4,23,36,.08), inset 0 2rpx 0 rgba(255,255,255,.96), inset 0 -1rpx 0 rgba(7,158,156,.10);
 }
 
-.dock-item-hover {
-  background: rgba(255, 255, 255, 0.35);
-}
-
-/* 选中态:青色渐变底胶囊(浅底约束下用半透青,不用 --aqua 实色) */
-.dock-item-on {
-  background: linear-gradient(135deg, rgba(18, 188, 208, 0.28), rgba(10, 160, 180, 0.2));
-}
-
-/* 图标为 bd-icon 命名 SVG(WO-011),尺寸/颜色由 dock.wxml 属性传入 */
-
-.dock-label {
-  font-size: 22rpx;
-  font-weight: 600;
-  color: var(--sub);
-}
-
-.dock-item-on .dock-label {
-  color: var(--p700);
-}
+.dock::before { content:'';position:absolute;left:34rpx;right:34rpx;top:0;height:2rpx;background:linear-gradient(90deg,transparent,rgba(255,255,255,.98),transparent) }
+.dock-track { position:absolute;z-index:0;inset:10rpx;pointer-events:none }
+.dock-indicator { height:100%;background:linear-gradient(135deg,rgba(139,244,235,.92),rgba(53,227,213,.68));border:1rpx solid rgba(255,255,255,.72);border-radius:32rpx;box-sizing:border-box;box-shadow:0 12rpx 28rpx rgba(7,158,156,.20),inset 0 2rpx 0 rgba(255,255,255,.78),inset 0 -2rpx 8rpx rgba(7,158,156,.12);transition:transform var(--motion-standard) var(--ease-aqua);will-change:transform }
+.dock-item { position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:2rpx;border-radius:32rpx;transition:transform var(--motion-fast) var(--ease-aqua) }
+.dock-item-hover { transform:scale(.98) }
+.dock-label { font-size:22rpx;font-weight:680;color:var(--ink-3);transition:color var(--motion-fast) var(--ease-aqua) }
+.dock-item-on .dock-label { color:var(--ocean-950);font-weight:780 }
+.bd-motion-reduced .dock-indicator,.bd-motion-reduced .dock-item,.bd-motion-reduced .dock-label { transition-duration:1ms }

@@ -1,0 +1,71 @@
+<bd-page chrome title="组件陈列" subtitle="十一个原生组件" topInset="{{topInset}}" dockSpace>
+  <view slot="chrome" class="count-badge">11 / 11</view>
+
+  <view class="intro">
+    <view class="eyebrow">组件画廊</view>
+    <view class="intro-title">一致，但不单调。</view>
+    <view class="intro-copy">每个组件共享相同的圆角、光影、排版与状态语言，同时保留足够的表达范围。</view>
+  </view>
+
+  <view class="demo-section">
+    <view class="demo-head"><view><view class="demo-index">01</view><view class="section-title">按钮</view></view><view class="demo-note">操作层级</view></view>
+    <bd-card tone="solid">
+      <bd-button loading="{{loading}}" bindtap="demoLoading">{{loading ? '正在同步' : '主要操作'}}</bd-button>
+      <view class="button-row">
+        <bd-button variant="ghost" size="md" shape="pill" block="{{false}}" bindtap="notify">次要操作</bd-button>
+        <bd-button variant="danger" size="md" shape="pill" block="{{false}}">谨慎操作</bd-button>
+      </view>
+      <view class="button-disabled"><bd-button disabled size="md">不可用状态</bd-button></view>
+    </bd-card>
+  </view>
+
+  <view class="demo-section">
+    <view class="demo-head"><view><view class="demo-index">02</view><view class="section-title">卡片与标签</view></view><view class="demo-note">表面系统</view></view>
+    <view class="chip-cloud">
+      <bd-chip semantic="ok" text="已确认" dot />
+      <bd-chip semantic="warn" text="待复核" dot />
+      <bd-chip semantic="info" text="同步中" dot />
+      <bd-chip semantic="neutral" text="草稿" />
+      <bd-chip semantic="danger" text="异常" dot />
+    </view>
+    <view class="tone-grid">
+      <view class="tone-cell"><bd-card tone="tint" padding="compact" title="水色" subtitle="柔和强调"><view class="tone-line tint-line"></view></bd-card></view>
+      <view class="tone-cell"><bd-card tone="ocean" padding="compact" title="深海" subtitle="旗舰焦点"><view class="tone-line ocean-line"></view></bd-card></view>
+    </view>
+  </view>
+
+  <view class="demo-section">
+    <view class="demo-head"><view><view class="demo-index">03</view><view class="section-title">输入区域</view></view><view class="demo-note">清晰输入</view></view>
+    <bd-card tone="glass">
+      <bd-field label="物种名称" required hint="支持常用名或学名">
+        <input class="aqua-input" value="{{species}}" placeholder="请输入物种" placeholder-class="aqua-placeholder" bindinput="onSpecies" />
+      </bd-field>
+      <bd-field label="记录备注" error="示例：这是错误提示的展示方式">
+        <textarea class="aqua-textarea" placeholder="补充现场信息…" placeholder-class="aqua-placeholder" />
+      </bd-field>
+    </bd-card>
+  </view>
+
+  <view class="demo-section">
+    <view class="demo-head"><view><view class="demo-index">04</view><view class="section-title">列表与反馈</view></view><bd-chip semantic="info" text="可交互" /></view>
+    <bd-card wx:if="{{!showSkeleton}}" tone="solid" padding="compact">
+      <block wx:for="{{rows}}" wx:key="title">
+        <bd-list-row icon="{{item.icon}}" title="{{item.title}}" desc="{{item.desc}}" arrow bindtap="notify">
+          <text slot="status" class="row-tag">{{item.tag}}</text>
+        </bd-list-row>
+        <view wx:if="{{index !== rows.length - 1}}" class="row-line"></view>
+      </block>
+    </bd-card>
+    <bd-skeleton wx:else rows="{{3}}" />
+    <bd-button variant="ghost" size="md" bindtap="toggleSkeleton">{{showSkeleton ? '显示真实内容' : '预览加载骨架'}}</bd-button>
+  </view>
+
+  <view class="demo-section last-section">
+    <view class="demo-head"><view><view class="demo-index">05</view><view class="section-title">空状态</view></view><view class="demo-note">平静恢复</view></view>
+    <bd-card tone="glass" padding="flush">
+      <bd-empty-state scene="no-data" title="这里很安静" desc="新的记录出现后，会以清晰的层级陈列在这里。" actionText="创建记录" bindaction="notify" />
+    </bd-card>
+  </view>
+
+  <bd-dock active="components" navItems="{{navItems}}" />
+</bd-page>

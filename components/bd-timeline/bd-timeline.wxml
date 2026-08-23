@@ -1,0 +1,6 @@
+<view class="bd-timeline">
+  <view wx:for="{{items}}" wx:key="title" class="bd-timeline-item bd-timeline-{{item.semantic || 'neutral'}}">
+    <view class="bd-timeline-axis"><view class="bd-timeline-dot"></view><view wx:if="{{index !== items.length - 1}}" class="bd-timeline-line"></view></view>
+    <view class="bd-timeline-card"><view class="bd-timeline-head"><text class="bd-timeline-title">{{item.title}}</text><text class="bd-timeline-time">{{item.time}}</text></view><text wx:if="{{item.desc}}" class="bd-timeline-desc">{{item.desc}}</text></view>
+  </view>
+</view>

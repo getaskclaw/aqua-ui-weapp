@@ -1,0 +1,8 @@
+<view class="bd-progress">
+  <view wx:if="{{label || showValue}}" class="bd-progress-head">
+    <text>{{label}}</text><text wx:if="{{showValue}}">{{percent}}%</text>
+  </view>
+  <view class="bd-progress-track bd-progress-{{size}}">
+    <view class="bd-progress-fill bd-progress-fill-{{semantic}}" style="width:{{percent}}%;"></view>
+  </view>
+</view>

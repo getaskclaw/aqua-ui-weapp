@@ -1,0 +1,12 @@
+<view wx:if="{{presented}}" class="bd-sheet-overlay bd-motion-{{motionState}} {{reducedMotion ? 'bd-motion-reduced' : ''}}" catchtouchmove="stop" bindtap="mask">
+  <view class="bd-sheet" catchtap="stop">
+    <view class="bd-sheet-handle"></view>
+    <view wx:if="{{title}}" class="bd-sheet-title">{{title}}</view>
+    <view class="bd-sheet-actions">
+      <view wx:for="{{actions}}" wx:key="name" class="bd-sheet-action {{item.danger ? 'bd-sheet-danger' : ''}} {{item.disabled ? 'bd-sheet-disabled' : ''}}" data-index="{{index}}" bindtap="choose">
+        <bd-icon wx:if="{{item.icon}}" name="{{item.icon}}" size="{{34}}" color="currentColor" /><view><text>{{item.name}}</text><text wx:if="{{item.desc}}" class="bd-sheet-desc">{{item.desc}}</text></view>
+      </view>
+    </view>
+    <view class="bd-sheet-cancel" bindtap="cancel">{{cancelText}}</view>
+  </view>
+</view>

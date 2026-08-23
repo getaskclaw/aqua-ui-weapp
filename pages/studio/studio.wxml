@@ -1,0 +1,48 @@
+<bd-page chrome title="视觉实验室" subtitle="令牌 · 图标 · 影像" topInset="{{topInset}}" dockSpace>
+  <view slot="chrome" class="studio-mark"><bd-icon name="sparkles" size="{{30}}" color="#041724" /></view>
+
+  <bd-card tone="ocean" padding="normal">
+    <view class="manifesto-kicker">水境 / 极地海洋</view>
+    <view class="manifesto-title"><view>冷静，是最高级的</view><view>视觉力量。</view></view>
+    <view class="manifesto-copy">留白负责呼吸，深海负责秩序，荧光水色只在真正重要的地方出现。</view>
+    <view class="manifesto-grid">
+      <view><text>28</text><text>像素模糊</text></view>
+      <view><text>36</text><text>响应圆角</text></view>
+      <view><text>优</text><text>清晰对比</text></view>
+    </view>
+  </bd-card>
+
+  <view class="lab-head"><view><view class="eyebrow">色彩</view><view class="section-title">核心色谱</view></view><view class="lab-note">点击复制</view></view>
+  <view class="color-grid">
+    <view wx:for="{{colors}}" wx:key="name" class="color-cell" style="background:{{item.value}};color:{{item.ink}}" data-value="{{item.value}}" bindtap="copyToken">
+      <view class="color-name">{{item.name}}</view>
+      <view class="color-value">{{item.value}}</view>
+    </view>
+  </view>
+
+  <view class="lab-head"><view><view class="eyebrow">图标语言</view><view class="section-title">命名图标</view></view><bd-chip semantic="neutral" text="{{icons.length}} 枚" /></view>
+  <bd-card tone="solid" padding="compact">
+    <view class="icon-grid">
+      <view wx:for="{{icons}}" wx:key="name" class="icon-cell">
+        <view class="icon-well"><bd-icon name="{{item.name}}" size="{{38}}" color="#0a3a52" /></view>
+        <view class="icon-name">{{item.label}}</view>
+      </view>
+    </view>
+  </bd-card>
+
+  <view class="lab-head"><view><view class="eyebrow">影像</view><view class="section-title">照片上传</view></view><view class="lab-note">持久化 · 压缩</view></view>
+  <bd-card tone="tint" title="现场影像" subtitle="最多 9 张，单张不超过 10 兆字节">
+    <bd-photo-uploader photos="{{photos}}" bindchange="onPhotos" />
+  </bd-card>
+
+  <view class="lab-head"><view><view class="eyebrow">原则</view><view class="section-title">视觉纪律</view></view></view>
+  <bd-card tone="glass" padding="compact">
+    <bd-list-row icon="sun" title="浅底保持清晰" desc="主要阅读区域拒绝低对比透明叠层" />
+    <view class="row-line"></view>
+    <bd-list-row icon="moon" title="深色建立焦点" desc="深海表面承载关键指标与品牌时刻" />
+    <view class="row-line"></view>
+    <bd-list-row icon="activity" title="动效服务反馈" desc="按压与加载克制、快速、不抢内容" />
+  </bd-card>
+
+  <bd-dock active="studio" navItems="{{navItems}}" />
+</bd-page>

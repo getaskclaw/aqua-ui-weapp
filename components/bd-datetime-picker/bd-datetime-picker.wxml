@@ -1,0 +1,7 @@
+<view class="bd-datetime {{disabled ? 'bd-datetime-disabled' : ''}}">
+  <view wx:if="{{label}}" class="bd-datetime-label">{{label}}</view>
+  <view class="bd-datetime-controls">
+    <picker class="bd-datetime-control" mode="date" value="{{date}}" start="{{start}}" end="{{end}}" disabled="{{disabled}}" bindchange="dateChange"><view>{{date || '选择日期'}}</view></picker>
+    <picker class="bd-datetime-control" mode="time" value="{{time}}" disabled="{{disabled}}" bindchange="timeChange"><view>{{time || '选择时间'}}</view></picker>
+  </view>
+</view>

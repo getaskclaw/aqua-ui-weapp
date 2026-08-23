@@ -1,10 +1,13 @@
 .bd-field {
-  margin-bottom: 8rpx;
+  margin-bottom: 24rpx;
 }
 
 .bd-field-label {
-  font-weight: 600;
-  margin: 24rpx 0 8rpx;
+  color: var(--ink-2);
+  font-size: 24rpx;
+  font-weight: 700;
+  margin: 0 0 12rpx 4rpx;
+  letter-spacing: .5rpx;
 }
 
 .bd-field-star {
@@ -12,13 +15,13 @@
 }
 
 .bd-field-hint {
-  color: var(--sub);
-  font-size: 26rpx;
-  margin-top: 8rpx;
+  color: var(--ink-3);
+  font-size: 22rpx;
+  margin: 10rpx 4rpx 0;
 }
 
 .bd-field-error {
   color: var(--danger);
-  font-size: 28rpx;
-  margin-top: 8rpx;
+  font-size: 22rpx;
+  margin: 10rpx 4rpx 0;
 }

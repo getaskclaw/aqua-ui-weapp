@@ -1,0 +1,4 @@
+<view class="bd-slider-wrap">
+  <view wx:if="{{label || showValue}}" class="bd-slider-head"><text>{{label}}</text><text wx:if="{{showValue}}">{{value}}</text></view>
+  <slider value="{{value}}" min="{{min}}" max="{{max}}" step="{{step}}" disabled="{{disabled}}" activeColor="#35e3d5" backgroundColor="#d8eaea" block-color="#f8ffff" block-size="24" bindchanging="changing" bindchange="change" />
+</view>

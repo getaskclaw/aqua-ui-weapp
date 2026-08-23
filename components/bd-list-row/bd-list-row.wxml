@@ -1,6 +1,6 @@
-<view class="bd-row" hover-class="bd-row-hover" bindtap="onTap">
+<view class="bd-row" hover-class="bd-row-hover" bindtap="onTap" aria-role="button" aria-label="{{title}} {{desc}}">
   <view wx:if="{{icon}}" class="bd-row-icon">
-    <bd-icon name="{{icon}}" size="{{44}}" color="#0aa0b4" />
+    <bd-icon name="{{icon}}" size="{{40}}" color="{{iconColor}}" />
   </view>
   <view class="bd-row-main">
     <view class="bd-row-title">{{title}}</view>

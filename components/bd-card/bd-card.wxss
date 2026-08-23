@@ -1,14 +1,56 @@
-/* bd-card:玻璃材质来自 .glass(apply-shared),这里只管留白与标题。 */
 .bd-card {
-  margin-bottom: 24rpx;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-bottom: 28rpx;
+  border-radius: 36rpx;
+  transition: transform 160ms ease, opacity 160ms ease;
 }
 
-.bd-card-normal { padding: 32rpx; }
-.bd-card-compact { padding: 20rpx 24rpx; }
+.bd-card-glass {
+  background: linear-gradient(145deg, rgba(255,255,255,.90), rgba(241,251,251,.82));
+  -webkit-backdrop-filter: blur(20px) saturate(1.25);
+  backdrop-filter: blur(20px) saturate(1.25);
+  border: 1rpx solid rgba(255,255,255,.9);
+  box-shadow: 0 18rpx 54rpx rgba(5,48,65,.09), inset 0 1rpx 0 rgba(255,255,255,.94);
+}
+
+.bd-card-solid {
+  background: var(--surface-solid);
+  border: 1rpx solid var(--stroke);
+  box-shadow: 0 10rpx 30rpx rgba(5,48,65,.07);
+}
+
+.bd-card-tint {
+  background: linear-gradient(145deg, rgba(139,244,235,.35), rgba(255,255,255,.72));
+  border: 1rpx solid rgba(255,255,255,.82);
+  box-shadow: inset 0 1rpx 0 rgba(255,255,255,.9);
+}
+
+.bd-card-ocean {
+  color: var(--inverse);
+  background:
+    radial-gradient(90% 120% at 100% 0%, rgba(53,227,213,.24), transparent 56%),
+    radial-gradient(70% 90% at 0% 100%, rgba(22,185,230,.12), transparent 62%),
+    linear-gradient(145deg, var(--ocean-800), var(--ocean-950));
+  border: 1rpx solid rgba(139,244,235,.15);
+  box-shadow: 0 22rpx 54rpx rgba(4,23,36,.22), inset 0 1rpx 0 rgba(255,255,255,.1);
+}
+
+.bd-card-normal { padding: 36rpx; }
+.bd-card-compact { padding: 24rpx 28rpx; }
 .bd-card-flush { padding: 0; }
+.bd-card-interactive { cursor: pointer; }
+.bd-card-hover { transform: scale(.985); opacity: .94; }
+.bd-card-heading { margin-bottom: 22rpx; }
 
 .bd-card-title {
-  font-size: 34rpx;
-  font-weight: 700;
-  margin-bottom: 16rpx;
+  color: var(--ink);
+  font-size: 33rpx;
+  font-weight: 760;
+  letter-spacing: -.5rpx;
 }
+
+.bd-card-ocean .bd-card-title { color: var(--inverse); }
+.bd-card-subtitle { margin-top: 6rpx; color: var(--ink-3); font-size: 24rpx; }
+.bd-card-ocean .bd-card-subtitle { color: rgba(224,251,251,.64); }

@@ -1,0 +1,4 @@
+<view class="bd-countdown">
+  <block wx:if="{{showHours}}"><view class="bd-count-unit">{{display.hours}}</view><text class="bd-count-sep">:</text></block>
+  <view class="bd-count-unit">{{display.minutes}}</view><text class="bd-count-sep">:</text><view class="bd-count-unit">{{display.seconds}}</view>
+</view>

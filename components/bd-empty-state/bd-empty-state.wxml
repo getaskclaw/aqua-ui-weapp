@@ -1,5 +1,5 @@
 <view class="bd-empty">
-  <bd-icon name="{{view.icon}}" size="{{96}}" color="#41626f" />
+  <view class="bd-empty-icon"><bd-icon name="{{view.icon}}" size="{{72}}" color="#079e9c" /></view>
   <view class="bd-empty-title">{{view.title}}</view>
   <view wx:if="{{view.desc}}" class="bd-empty-desc">{{view.desc}}</view>
   <view wx:if="{{view.actionText}}" class="bd-empty-action">

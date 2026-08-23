@@ -1,62 +1,72 @@
-/* bd-photo-uploader:虚线添加框(玻璃体系外的稳定浅底,户外可读),
-   九宫格三列等比,删除角标 danger 实底圆点。 */
 .bd-uploader-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 16rpx;
+  gap: 18rpx;
 }
 
 .bd-uploader-cell {
   position: relative;
-  width: 180rpx;
-  height: 180rpx;
+  width: 194rpx;
+  height: 194rpx;
 }
 
 .bd-uploader-img {
-  width: 180rpx;
-  height: 180rpx;
-  border-radius: 8rpx;
+  width: 194rpx;
+  height: 194rpx;
+  border-radius: 28rpx;
+  box-shadow: 0 12rpx 28rpx rgba(5,48,65,.12);
 }
 
 .bd-uploader-del {
   position: absolute;
-  top: -12rpx;
-  right: -12rpx;
-  width: 44rpx;
-  height: 44rpx;
+  top: 8rpx;
+  right: 8rpx;
+  width: 40rpx;
+  height: 40rpx;
   border-radius: 50%;
   background: var(--danger);
   color: #ffffff;
   text-align: center;
-  line-height: 44rpx;
-  font-size: 32rpx;
+  line-height: 38rpx;
+  font-size: 28rpx;
+  border: 3rpx solid rgba(255,255,255,.9);
+  box-shadow: 0 6rpx 14rpx rgba(100,20,30,.2);
 }
 
 .bd-uploader-add {
-  width: 180rpx;
-  height: 180rpx;
+  width: 194rpx;
+  height: 194rpx;
   box-sizing: border-box;
-  border: 2rpx dashed var(--sub);
-  border-radius: 8rpx;
-  background: #f4f6f8;
+  border: 2rpx dashed rgba(7,158,156,.34);
+  border-radius: 28rpx;
+  background: linear-gradient(145deg, rgba(255,255,255,.7), rgba(139,244,235,.15));
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8rpx;
+  gap: 4rpx;
+  transition: opacity var(--motion-standard) var(--ease-aqua), transform var(--motion-standard) var(--ease-aqua), background-color var(--motion-standard) var(--ease-aqua), border-color var(--motion-standard) var(--ease-aqua);
 }
 
 .bd-uploader-add-hover {
-  background: #e8edf1;
+  background: rgba(139,244,235,.28);
 }
+
+.bd-uploader-add-icon { display: flex; margin-bottom: 4rpx; transition: opacity var(--motion-fast) var(--ease-aqua), transform var(--motion-standard) var(--ease-aqua); }
+.bd-uploader-add-title { color: var(--ink-2); font-size: 24rpx; font-weight: 700; transition: opacity var(--motion-fast) var(--ease-aqua); }
+.bd-uploader-busy { opacity: .62; transform: scale(.985); border-color: rgba(7,158,156,.18); }
+.bd-uploader-busy .bd-uploader-add-icon { opacity: .78; transform: scale(.94); }
+.bd-motion-reduced .bd-uploader-add,
+.bd-motion-reduced .bd-uploader-add-icon,
+.bd-motion-reduced .bd-uploader-add-title { transition-duration: 1ms; transform: none; }
 
 .bd-uploader-count {
   font-size: 24rpx;
-  color: var(--sub);
+  color: var(--ink-3);
 }
 
 .bd-uploader-full {
   margin-top: 12rpx;
   font-size: 26rpx;
-  color: var(--sub);
+  color: var(--ink-3);
 }

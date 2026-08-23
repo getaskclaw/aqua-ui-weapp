@@ -1,0 +1,6 @@
+<view class="bd-avatar bd-avatar-{{shape}}" style="width:{{size}}rpx;height:{{size}}rpx;">
+  <image wx:if="{{src}}" class="bd-avatar-img" src="{{src}}" mode="aspectFill" />
+  <text wx:elif="{{text}}" class="bd-avatar-text" style="font-size:{{size * 0.36}}rpx;">{{text}}</text>
+  <bd-icon wx:else name="user" size="{{size * 0.5}}" color="#0a3a52" />
+  <view wx:if="{{status}}" class="bd-avatar-status bd-avatar-status-{{status}}"></view>
+</view>

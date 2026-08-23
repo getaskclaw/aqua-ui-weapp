@@ -1,0 +1,4 @@
+<view class="bd-goods-action {{fixed ? 'bd-goods-action-fixed' : ''}} {{safeArea ? 'bd-goods-action-safe' : ''}}">
+  <view class="bd-goods-links"><view wx:for="{{actions}}" wx:key="key" class="bd-goods-link {{item.disabled ? 'bd-goods-link-disabled' : ''}}" data-index="{{index}}" bindtap="select"><view class="bd-goods-icon"><bd-icon name="{{item.icon}}" size="{{34}}" color="#284b5a" /><text wx:if="{{item.badge}}">{{item.badge}}</text></view><view>{{item.label}}</view></view></view>
+  <view class="bd-goods-buttons {{disabled ? 'bd-goods-buttons-disabled' : ''}}"><view wx:if="{{showSecondary}}" class="bd-goods-secondary" bindtap="secondary">{{secondaryText}}</view><view class="bd-goods-primary" bindtap="primary">{{primaryText}}</view></view>
+</view>

@@ -1,8 +1,11 @@
 <view
-  class="bd-btn bd-btn-{{variant}} bd-btn-{{size}} {{disabled || loading ? 'bd-btn-off' : ''}}"
+  class="bd-btn bd-btn-{{variant}} bd-btn-{{size}} bd-btn-{{shape}} {{block ? 'bd-btn-block' : 'bd-btn-inline'}} {{disabled || loading ? 'bd-btn-off' : ''}}"
   hover-class="{{disabled || loading ? 'none' : 'bd-btn-hover-' + variant}}"
   bindtap="onTap"
+  aria-role="button"
+  aria-label="{{ariaLabel}}"
+  aria-disabled="{{disabled || loading}}"
 >
   <view wx:if="{{loading}}" class="bd-btn-spinner"></view>
-  <slot />
+  <view class="bd-btn-content"><slot /></view>
 </view>

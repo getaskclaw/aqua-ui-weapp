@@ -1,0 +1,5 @@
+<view wx:if="{{visible}}" class="bd-alert bd-alert-{{semantic}}">
+  <view class="bd-alert-icon"><bd-icon name="{{icon}}" size="{{38}}" color="currentColor" /></view>
+  <view class="bd-alert-copy"><text class="bd-alert-title">{{title}}</text><text wx:if="{{desc}}" class="bd-alert-desc">{{desc}}</text><slot /></view>
+  <view wx:if="{{closable}}" class="bd-alert-close" bindtap="close">×</view>
+</view>

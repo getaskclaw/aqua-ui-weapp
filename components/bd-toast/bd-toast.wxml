@@ -1,0 +1,1 @@
+<view wx:if="{{visible}}" class="bd-toast-layer bd-toast-{{position}} {{mask ? 'bd-toast-mask' : ''}}" catchtouchmove="stop"><view class="bd-toast bd-toast-{{semantic}}" bindtap="close"><view class="bd-toast-dot"></view><text>{{message}}</text></view></view>

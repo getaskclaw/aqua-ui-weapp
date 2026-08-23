@@ -1,0 +1,4 @@
+.bd-badge-wrap{position:relative;display:inline-flex}
+.bd-badge{position:absolute;z-index:2;right:-14rpx;top:-12rpx;display:flex;align-items:center;justify-content:center;min-width:34rpx;height:34rpx;padding:0 9rpx;color:#fff;background:var(--danger);border:3rpx solid #f7fdfd;border-radius:999rpx;box-shadow:0 6rpx 16rpx rgba(4,23,36,.18);font-size:19rpx;font-weight:800;line-height:1}
+.bd-badge-dot{right:-5rpx;top:-5rpx;min-width:16rpx;width:16rpx;height:16rpx;padding:0}
+.bd-badge-info{background:var(--info)}.bd-badge-ok{background:var(--success)}.bd-badge-warn{background:var(--warning)}.bd-badge-neutral{background:var(--ink-3)}

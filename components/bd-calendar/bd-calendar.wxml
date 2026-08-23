@@ -1,0 +1,7 @@
+<view class="bd-calendar">
+  <view class="bd-calendar-head"><view class="bd-calendar-nav" bindtap="previous">‹</view><view class="bd-calendar-title">{{year}} 年 {{month + 1}} 月</view><view class="bd-calendar-nav" bindtap="next">›</view></view>
+  <view class="bd-calendar-week"><text wx:for="{{weekLabels}}" wx:key="*this">{{item}}</text></view>
+  <view class="bd-calendar-grid">
+    <view wx:for="{{days}}" wx:key="key" class="bd-calendar-day {{item.blank ? 'bd-calendar-blank' : ''}} {{item.selected ? 'bd-calendar-selected' : ''}} {{item.today ? 'bd-calendar-today' : ''}} {{item.disabled ? 'bd-calendar-disabled' : ''}}" data-index="{{index}}" bindtap="select">{{item.day}}</view>
+  </view>
+</view>

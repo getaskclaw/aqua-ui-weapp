@@ -1,4 +1,4 @@
-<view class="bd-uploader">
+<view class="bd-uploader {{reducedMotion ? 'bd-motion-reduced' : ''}}">
   <view class="bd-uploader-grid">
     <view wx:for="{{photos}}" wx:key="index" class="bd-uploader-cell">
       <image
@@ -7,21 +7,28 @@
         class="bd-uploader-img"
         data-index="{{index}}"
         bindtap="preview"
+        aria-role="img"
+        aria-label="照片 {{index + 1}}，点击预览"
       />
       <view
         wx:if="{{!disabled}}"
         class="bd-uploader-del"
         data-index="{{index}}"
         catchtap="removePhoto"
+        aria-role="button"
+        aria-label="删除照片 {{index + 1}}"
       >×</view>
     </view>
     <view
       wx:if="{{canAddPhotos && !disabled}}"
-      class="bd-uploader-add"
+      class="bd-uploader-add {{busy ? 'bd-uploader-busy' : ''}}"
       hover-class="bd-uploader-add-hover"
       bindtap="addPhotos"
+      aria-role="button"
+      aria-label="{{busy ? '正在处理照片' : '添加照片，当前' + countLabel}}"
     >
-      <bd-icon name="camera" size="{{56}}" color="#41626f" />
+      <view class="bd-uploader-add-icon"><bd-icon name="{{busy ? 'clock' : 'upload'}}" size="{{44}}" color="#079e9c" /></view>
+      <text class="bd-uploader-add-title">{{busy ? '处理中' : '添加照片'}}</text>
       <text class="bd-uploader-count">{{countLabel}}</text>
     </view>
   </view>

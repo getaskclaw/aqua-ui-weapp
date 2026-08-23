@@ -1,0 +1,73 @@
+<bd-page chrome title="交互控件" subtitle="输入 · 选择 · 数据" topInset="{{topInset}}" dockSpace>
+  <view slot="chrome" class="control-count">17 项</view>
+
+  <view class="control-intro">
+    <view class="eyebrow">原生交互</view>
+    <view class="control-title">每一种输入，都有清晰回应。</view>
+    <view class="control-copy">覆盖身份、状态、选择、数值、搜索与导航，全部提供可监听的原生事件。</view>
+  </view>
+
+  <view class="control-section">
+    <view class="control-head"><view><view class="control-index">01</view><view class="section-title">身份与提示</view></view><view class="control-note">展示组件</view></view>
+    <bd-card tone="solid">
+      <view class="avatar-row">
+        <bd-avatar text="水" status="online" />
+        <bd-avatar text="境" shape="rounded" status="away" />
+        <bd-badge value="{{12}}"><bd-avatar text="新" status="busy" /></bd-badge>
+        <bd-badge dot semantic="info"><view class="message-well"><bd-icon name="bell" size="{{38}}" color="#0a3a52" /></view></bd-badge>
+      </view>
+      <bd-divider text="快捷入口" />
+      <bd-grid items="{{gridItems}}" columns="{{4}}" bindselect="notify" />
+    </bd-card>
+  </view>
+
+  <view class="control-section">
+    <view class="control-head"><view><view class="control-index">02</view><view class="section-title">数据与进度</view></view><view class="control-note">实时状态</view></view>
+    <view class="stat-grid">
+      <bd-stat label="今日新增" value="1,284" trend="↑ 12%" note="较昨日" icon="activity" />
+      <bd-stat label="完成率" value="96%" trend="稳定" note="本周期" icon="check" tone="ocean" />
+    </view>
+    <bd-card tone="glass">
+      <bd-progress label="资料同步" value="{{78}}" />
+      <view class="progress-gap"><bd-progress label="复核进度" value="{{56}}" semantic="warn" size="small" /></view>
+      <view class="progress-gap"><bd-progress label="安全检查" value="{{92}}" semantic="ok" /></view>
+    </bd-card>
+  </view>
+
+  <view class="control-section">
+    <view class="control-head"><view><view class="control-index">03</view><view class="section-title">开关与选择</view></view><view class="control-note">表单状态</view></view>
+    <bd-card tone="solid">
+      <bd-switch label="自动同步" desc="网络可用时保持最新" checked />
+      <view class="control-line"></view>
+      <bd-switch label="仅无线网络" desc="减少移动数据消耗" size="small" />
+      <bd-divider text="多项选择" align="left" dashed />
+      <bd-check label="接收重要提醒" desc="只推送需要立即处理的消息" checked />
+      <bd-check label="附带位置数据" desc="可随时在设置中关闭" shape="circle" />
+      <bd-divider text="单项选择" align="left" dashed />
+      <bd-radio items="{{radioItems}}" value="{{radioValue}}" bindchange="onRadio" />
+    </bd-card>
+  </view>
+
+  <view class="control-section">
+    <view class="control-head"><view><view class="control-index">04</view><view class="section-title">数值输入</view></view><view class="control-note">精确调节</view></view>
+    <bd-card tone="tint">
+      <view class="inline-control"><view><view class="inline-title">参与人数</view><view class="inline-desc">限制在一至十二人</view></view><bd-stepper value="{{3}}" min="{{1}}" max="{{12}}" /></view>
+      <bd-divider />
+      <bd-slider label="透明强度" value="{{sliderValue}}" bindchange="onSlider" />
+      <bd-divider />
+      <view class="inline-control"><view><view class="inline-title">体验评分</view><view class="inline-desc">点击星标评分</view></view><bd-rate value="{{rateValue}}" bindchange="onRate" /></view>
+      <bd-divider />
+      <bd-pagination current="{{pageValue}}" total="{{8}}" bindchange="onPage" />
+    </bd-card>
+  </view>
+
+  <view class="control-section last-control-section">
+    <view class="control-head"><view><view class="control-index">05</view><view class="section-title">搜索与切换</view></view><view class="control-note">信息导航</view></view>
+    <bd-search value="{{searchValue}}" placeholder="搜索组件、令牌或图标" bindinput="onSearchInput" bindsearch="notify" />
+    <view class="control-block"><bd-segmented items="{{segments}}" active="{{segmentValue}}" bindchange="onSegment" /></view>
+    <view class="control-block"><bd-tabs items="{{tabs}}" active="{{tabValue}}" bindchange="onTab" /></view>
+  </view>
+
+  <bd-fab text="新建" icon="plus" bottom="{{176}}" bindtap="notify" />
+  <bd-dock active="controls" navItems="{{navItems}}" />
+</bd-page>

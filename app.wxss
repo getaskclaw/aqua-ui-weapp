@@ -1,0 +1,27 @@
+@import "styles/tokens.wxss";
+
+view, text, image, input, textarea, button {
+  box-sizing: border-box;
+}
+
+.aqua-input,
+.aqua-textarea {
+  width: 100%;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1rpx solid var(--stroke-strong);
+  border-radius: 22rpx;
+  box-shadow: inset 0 2rpx 8rpx rgba(5, 48, 65, 0.04), 0 1rpx 0 rgba(255,255,255,.9);
+}
+
+.aqua-input {
+  height: 88rpx;
+  padding: 0 26rpx;
+}
+
+.aqua-textarea {
+  min-height: 160rpx;
+  padding: 22rpx 26rpx;
+}
+
+.aqua-placeholder { color: #8aa0a8; }

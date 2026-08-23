@@ -1,0 +1,7 @@
+<view class="bd-grid {{bordered ? 'bd-grid-bordered' : ''}}">
+  <view wx:for="{{items}}" wx:key="key" class="bd-grid-cell" style="width:{{cellWidth}}%;" data-index="{{index}}" hover-class="bd-grid-hover" bindtap="choose">
+    <view class="bd-grid-icon"><bd-icon name="{{item.icon}}" size="{{38}}" color="#0a3a52" /></view>
+    <text class="bd-grid-label">{{item.label}}</text>
+    <text wx:if="{{item.note}}" class="bd-grid-note">{{item.note}}</text>
+  </view>
+</view>

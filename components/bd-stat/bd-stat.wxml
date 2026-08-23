@@ -1,0 +1,5 @@
+<view class="bd-stat bd-stat-{{tone}}">
+  <view class="bd-stat-top"><text class="bd-stat-label">{{label}}</text><view class="bd-stat-icon"><bd-icon name="{{icon}}" size="{{30}}" color="{{tone === 'ocean' ? '#8bf4eb' : '#079e9c'}}" /></view></view>
+  <view class="bd-stat-value">{{value}}</view>
+  <view class="bd-stat-foot"><text wx:if="{{trend}}" class="bd-stat-trend">{{trend}}</text><text class="bd-stat-note">{{note}}</text></view>
+</view>

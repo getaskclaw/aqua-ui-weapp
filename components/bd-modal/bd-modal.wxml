@@ -1,0 +1,12 @@
+<view wx:if="{{presented}}" class="bd-overlay bd-motion-{{motionState}} {{reducedMotion ? 'bd-motion-reduced' : ''}}" catchtouchmove="stop" bindtap="mask">
+  <view class="bd-modal" catchtap="stop">
+    <view class="bd-modal-glint"></view>
+    <view class="bd-modal-title">{{title}}</view>
+    <view wx:if="{{desc}}" class="bd-modal-desc">{{desc}}</view>
+    <view class="bd-modal-content"><slot /></view>
+    <view class="bd-modal-actions">
+      <bd-button wx:if="{{showCancel}}" variant="ghost" size="md" bindtap="cancel">{{cancelText}}</bd-button>
+      <bd-button size="md" bindtap="confirm">{{confirmText}}</bd-button>
+    </view>
+  </view>
+</view>

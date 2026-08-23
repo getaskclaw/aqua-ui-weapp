@@ -1,0 +1,46 @@
+<bd-page chrome title="业务扩展" subtitle="商城审计补全" topInset="{{topInset}}">
+  <view slot="chrome" class="extension-count">新增十六项</view>
+
+  <view class="extension-intro"><view class="eyebrow">真实业务覆盖</view><view class="extension-title">从基础控件，走到完整交易界面。</view><view class="extension-copy">这些组件来自商城审计中的高频缺口，仍保持原生、轻量与可组合。</view></view>
+
+  <bd-sticky top="{{topInset + 112}}" zIndex="{{70}}"><bd-notice text="本页集中展示商城与布局扩展" semantic="info" icon="sparkles" /></bd-sticky>
+
+  <view class="extension-section"><view class="section-title">输入与列表</view>
+    <bd-card tone="solid">
+      <bd-input label="配送备注" value="{{note}}" placeholder="请输入配送要求" clearable bindinput="inputNote" />
+      <bd-input label="补充说明" multiline maxlength="{{120}}" placeholder="可填写门牌或联系说明" hint="最多一百二十字" />
+      <bd-cell-group title="订单信息" desc="三项">
+        <bd-list-row icon="location" title="配送地址" desc="深圳市南山区" arrow bindtap="notify" />
+        <view class="extension-line"></view>
+        <bd-list-row icon="clock" title="配送时间" desc="今天十四时三十分" arrow bindtap="notify" />
+      </bd-cell-group>
+    </bd-card>
+  </view>
+
+  <view class="extension-section"><view class="section-title">分类与媒体</view>
+    <view class="sidebar-demo"><bd-sidebar items="{{sidebarItems}}" active="{{sidebarActive}}" bindchange="sidebarChange" /><view class="sidebar-result"><view class="sidebar-result-title">当前分类</view><view>{{sidebarActive}}</view><bd-image src="/docs/screenshots/shop-index.png" alt="商城首页" height="230rpx" radius="{{24}}" /></view></view>
+    <view class="extension-gap"><bd-carousel items="{{carouselItems}}" height="{{330}}" bindselect="notify" /></view>
+  </view>
+
+  <view class="extension-section"><view class="section-title">日期与选择</view>
+    <bd-card tone="glass">
+      <bd-datetime-picker label="预约时间" date="{{date}}" time="{{time}}" bindchange="datetimeChange" />
+      <view class="extension-gap"><bd-region-picker label="配送地区" value="{{region}}" bindchange="regionChange" /></view>
+      <view class="extension-gap"><bd-button variant="ghost" size="md" bindtap="openPicker">选择配送方式</bd-button></view>
+    </bd-card>
+    <view class="extension-gap"><bd-calendar value="{{selectedDate}}" min="2026-08-01" max="2026-12-31" bindchange="calendarChange" /></view>
+  </view>
+
+  <view class="extension-section"><view class="section-title">商品与交易</view>
+    <bd-product-card image="/docs/screenshots/shop-detail.png" title="极地水境体验套装" desc="包含主题组件与真实业务示例" price="268.00" originalPrice="328.00" tag="推荐" actionText="选规格" bindaction="openSku" />
+    <view class="extension-gap"><bd-goods-action actions="{{goodsActions}}" primaryText="立即购买" secondaryText="加入购物车" bindselect="notify" bindprimary="notify" bindsecondary="openSku" /></view>
+    <view class="extension-gap"><bd-submit-bar label="合计" price="268.00" note="已包含配送服务" buttonText="提交订单" bindsubmit="notify" /></view>
+  </view>
+
+  <view class="extension-section last-extension-section"><view class="section-title">浮层与消息</view><view class="extension-actions"><bd-button size="md" bindtap="openPopup">打开通用浮层</bd-button><bd-button variant="ghost" size="md" bindtap="notify">显示轻提示</bd-button></view></view>
+
+  <bd-popup visible="{{popupVisible}}" position="center" title="通用浮层" bindclose="closePopup"><view class="popup-demo-copy">居中、顶部与底部位置共用同一套清晰的遮罩与关闭行为。</view><bd-button size="md" bindtap="closePopup">知道了</bd-button></bd-popup>
+  <bd-picker visible="{{pickerVisible}}" title="配送方式" options="{{pickerOptions}}" value="{{pickerValue}}" bindcancel="closePicker" bindconfirm="pickerConfirm" />
+  <bd-sku-selector visible="{{skuVisible}}" image="/docs/screenshots/shop-detail.png" price="268.00" groups="{{skuGroups}}" selected="{{skuSelected}}" bindcancel="closeSku" bindconfirm="skuConfirm" />
+  <bd-toast visible="{{bdToast.visible}}" message="{{bdToast.message}}" semantic="{{bdToast.semantic}}" position="{{bdToast.position}}" mask="{{bdToast.mask}}" bindclose="closeToast" />
+</bd-page>

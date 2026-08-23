@@ -1,0 +1,4 @@
+{
+  "desc": "Aqua UI showroom pages",
+  "rules": [{ "action": "allow", "page": "*" }]
+}

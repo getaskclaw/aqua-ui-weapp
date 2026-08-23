@@ -1,0 +1,4 @@
+<view class="bd-region {{disabled ? 'bd-region-disabled' : ''}}">
+  <view wx:if="{{label}}" class="bd-region-label">{{label}}</view>
+  <picker mode="region" value="{{value}}" custom-item="{{customItem}}" level="{{level}}" disabled="{{disabled}}" bindchange="change"><view class="bd-region-control {{value.length ? '' : 'bd-region-placeholder'}}">{{value.length ? display : placeholder}}<text>›</text></view></picker>
+</view>

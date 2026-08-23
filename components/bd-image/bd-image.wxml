@@ -1,0 +1,5 @@
+<view class="bd-image" style="width:{{width}};height:{{height}};border-radius:{{radius}}rpx" bindtap="tap">
+  <image wx:if="{{src && !failed}}" class="bd-image-native" src="{{src}}" mode="{{mode}}" lazy-load="{{lazyLoad}}" bindload="loaded" binderror="failed" aria-label="{{alt}}" />
+  <view wx:if="{{showLoading && loading && src}}" class="bd-image-state"><view class="bd-image-spinner"></view></view>
+  <view wx:if="{{!src || failed}}" class="bd-image-state bd-image-failed"><bd-icon name="image" size="{{42}}" color="#607b86" /><text>图片暂不可用</text></view>
+</view>

@@ -1,0 +1,4 @@
+<view class="bd-switch-row {{disabled ? 'bd-switch-disabled' : ''}}" bindtap="toggle" aria-role="switch" aria-checked="{{checked}}">
+  <view wx:if="{{label || desc}}" class="bd-switch-copy"><text class="bd-switch-label">{{label}}</text><text wx:if="{{desc}}" class="bd-switch-desc">{{desc}}</text></view>
+  <view class="bd-switch bd-switch-{{size}} {{checked ? 'bd-switch-on' : ''}}"><view class="bd-switch-knob"></view></view>
+</view>

@@ -1,36 +1,48 @@
-/* bd-chip:语义色取自 app.wxss token(--ok/--warn/--p600/--sub/--danger),
-   背景为同色 12% 透明底,文字实色保对比度。 */
 .bd-chip {
   display: inline-flex;
   align-items: center;
-  padding: 6rpx 20rpx;
+  gap: 10rpx;
+  padding: 7rpx 18rpx;
   border-radius: 999rpx;
+  border: 1rpx solid currentColor;
   font-size: 24rpx;
-  font-weight: 600;
-  line-height: 1.5;
+  font-weight: 700;
+  line-height: 1.45;
 }
+.bd-chip-dot { width: 10rpx; height: 10rpx; border-radius: 50%; background: currentColor; }
 
 .bd-chip-ok {
-  color: var(--ok);
-  background: rgba(28, 124, 84, 0.12);
+  color: var(--success);
+  background: rgba(9, 132, 95, 0.09);
+  border-color: rgba(9,132,95,.16);
 }
 
 .bd-chip-warn {
-  color: var(--warn);
-  background: rgba(179, 84, 30, 0.12);
+  color: var(--warning);
+  background: rgba(180, 95, 18, 0.09);
+  border-color: rgba(180,95,18,.16);
 }
 
 .bd-chip-info {
-  color: var(--p600);
-  background: rgba(18, 188, 208, 0.16);
+  color: var(--info);
+  background: rgba(8, 124, 165, 0.09);
+  border-color: rgba(8,124,165,.15);
 }
 
 .bd-chip-neutral {
-  color: var(--sub);
-  background: rgba(65, 98, 111, 0.12);
+  color: var(--ink-2);
+  background: rgba(40, 75, 90, 0.07);
+  border-color: rgba(40,75,90,.12);
 }
 
 .bd-chip-danger {
   color: var(--danger);
-  background: rgba(176, 0, 32, 0.12);
+  background: rgba(196, 61, 78, 0.09);
+  border-color: rgba(196,61,78,.15);
+}
+
+.bd-chip-inverse {
+  color: var(--aqua-300);
+  background: rgba(139, 244, 235, 0.08);
+  border-color: rgba(139, 244, 235, 0.18);
 }

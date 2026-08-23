@@ -1,0 +1,8 @@
+<scroll-view class="bd-tabs-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+  <view class="bd-tabs {{centered ? 'bd-tabs-centered' : ''}} {{reducedMotion ? 'bd-motion-reduced' : ''}}">
+    <view wx:if="{{indicatorVisible}}" class="bd-tabs-indicator" style="{{indicatorStyle}}"></view>
+    <view wx:for="{{items}}" wx:key="key" class="bd-tab {{active === item.key ? 'bd-tab-on' : ''}} {{item.disabled ? 'bd-tab-disabled' : ''}}" data-index="{{index}}" bindtap="choose">
+      <text>{{item.label}}</text><text wx:if="{{item.badge}}" class="bd-tab-badge">{{item.badge}}</text>
+    </view>
+  </view>
+</scroll-view>

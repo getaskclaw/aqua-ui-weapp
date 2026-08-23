@@ -1,53 +1,65 @@
-/* bd-page:mesh 网底与 .dock-space 复用 app.wxss(apply-shared),
-   本文件只定义安全区留白与 navy chrome 标题条。 */
 .bd-page {
   min-height: 100vh;
   box-sizing: border-box;
 }
 
-/* 内容留白 + 底部安全区(常量+环境变量双写,后者覆盖前者) */
-.bd-page-padded {
-  padding: 32rpx;
+.bd-page-safe { width: 100%; }
+
+.bd-page-content { box-sizing: border-box; }
+.bd-page-content-padded {
+  padding: 28rpx 28rpx 40rpx;
   padding-bottom: calc(32rpx + constant(safe-area-inset-bottom));
   padding-bottom: calc(32rpx + env(safe-area-inset-bottom));
 }
 
-/* navy chrome 标题条:深底白字,--aqua 亮青仅作强调条(深底合规) */
 .bd-page-chrome {
+  position: sticky;
+  top: 0;
+  z-index: 80;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 0 24rpx;
-  padding: 30rpx 32rpx;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
-  color: #ffffff;
-}
-
-/* padded 形态下 chrome 吃掉内容留白,整幅贴边 */
-.bd-page-padded .bd-page-chrome {
-  margin: -32rpx -32rpx 24rpx;
+  min-height: 96rpx;
+  margin: 0 20rpx 18rpx;
+  padding: 12rpx 20rpx 12rpx 24rpx;
+  color: var(--ink);
+  background: linear-gradient(145deg, rgba(255,255,255,.82), rgba(238,250,250,.66));
+  -webkit-backdrop-filter: blur(26px) saturate(1.55);
+  backdrop-filter: blur(26px) saturate(1.55);
+  border: 1rpx solid var(--glass-edge);
+  border-radius: 34rpx;
+  box-shadow:
+    0 18rpx 44rpx rgba(4,23,36,.10),
+    0 2rpx 8rpx rgba(4,23,36,.05),
+    inset 0 2rpx 0 rgba(255,255,255,.94),
+    inset 0 -1rpx 0 rgba(7,158,156,.08);
 }
 
 .bd-page-title-wrap {
   display: flex;
   align-items: center;
+  gap: 18rpx;
 }
 
-.bd-page-accent {
-  width: 8rpx;
-  height: 36rpx;
-  border-radius: 4rpx;
-  background: var(--aqua);
-  margin-right: 18rpx;
+.bd-page-mark {
+  width: 22rpx;
+  height: 44rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(180deg, var(--aqua-400), var(--cyan-500));
+  box-shadow: 0 8rpx 20rpx rgba(11,201,189,.28);
 }
 
 .bd-page-title {
-  font-size: 40rpx;
-  font-weight: 700;
-  letter-spacing: 1rpx;
+  font-size: 31rpx;
+  font-weight: 780;
+  letter-spacing: -.5rpx;
 }
+
+.bd-page-subtitle { color: var(--ink-3); font-size: 20rpx; letter-spacing: 1rpx; }
 
 .bd-page-extra {
   display: flex;
   align-items: center;
+  /* Keep custom chrome content clear of WeChat's native capsule. */
+  margin-right: 158rpx;
 }

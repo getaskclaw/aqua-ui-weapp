@@ -1,0 +1,6 @@
+<view class="bd-segmented {{disabled ? 'bd-segmented-disabled' : ''}} {{reducedMotion ? 'bd-motion-reduced' : ''}}">
+  <view class="bd-segment-track">
+    <view wx:if="{{indicatorVisible}}" class="bd-segment-indicator" style="{{indicatorStyle}}"></view>
+    <view wx:for="{{displayItems}}" wx:key="key" class="bd-segment {{active === item.key ? 'bd-segment-on' : ''}} {{item.disabled ? 'bd-segment-disabled' : ''}}" data-index="{{index}}" bindtap="choose">{{item.label}}</view>
+  </view>
+</view>

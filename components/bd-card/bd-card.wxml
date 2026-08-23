@@ -1,5 +1,12 @@
-<view class="glass bd-card bd-card-{{padding}}">
-  <view wx:if="{{title}}" class="bd-card-title">{{title}}</view>
+<view
+  class="bd-card bd-card-{{padding}} bd-card-{{tone}} {{interactive ? 'bd-card-interactive' : ''}}"
+  hover-class="{{interactive ? 'bd-card-hover' : 'none'}}"
+  bindtap="onTap"
+>
+  <view wx:if="{{title || subtitle}}" class="bd-card-heading">
+    <view wx:if="{{title}}" class="bd-card-title">{{title}}</view>
+    <view wx:if="{{subtitle}}" class="bd-card-subtitle">{{subtitle}}</view>
+  </view>
   <slot wx:else name="title" />
   <slot />
 </view>

@@ -1,0 +1,6 @@
+<view wx:if="{{presented}}" class="bd-popup-layer bd-popup-layer-{{position}} bd-motion-{{motionState}} {{reducedMotion ? 'bd-motion-reduced' : ''}}" catchtouchmove="stop" bindtap="mask">
+  <view class="bd-popup bd-popup-{{position}} {{round ? 'bd-popup-round' : ''}} {{safeArea ? 'bd-popup-safe' : ''}}" catchtap="stop">
+    <view wx:if="{{title || closeable}}" class="bd-popup-head"><view class="bd-popup-title">{{title}}</view><slot name="header" /><view wx:if="{{closeable}}" class="bd-popup-close" bindtap="close" aria-role="button" aria-label="关闭">×</view></view>
+    <view class="bd-popup-content"><slot /></view>
+  </view>
+</view>

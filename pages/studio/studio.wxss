@@ -1,0 +1,21 @@
+.studio-mark { display:flex; align-items:center; justify-content:center; width:56rpx; height:56rpx; border:1rpx solid rgba(255,255,255,.78); border-radius:20rpx; background:radial-gradient(circle at 28% 18%,rgba(255,255,255,.8),transparent 42%),linear-gradient(135deg,var(--aqua-300),var(--cyan-500)); box-shadow:0 10rpx 24rpx rgba(7,158,156,.2),inset 0 1rpx 0 #fff; }
+.manifesto-kicker { color: var(--aqua-300); font-size: 19rpx; font-weight: 780; letter-spacing: 3rpx; }
+.manifesto-title { margin-top: 28rpx; color: var(--inverse); font-size: 45rpx; font-weight: 800; line-height: 1.25; letter-spacing: -2rpx; }
+.manifesto-copy { margin-top: 22rpx; color: rgba(224,251,251,.67); font-size: 24rpx; line-height: 1.7; }
+.manifesto-grid { display: flex; gap: 12rpx; margin-top: 38rpx; }
+.manifesto-grid view { flex: 1; padding: 18rpx 14rpx; background: rgba(139,244,235,.07); border: 1rpx solid rgba(139,244,235,.11); border-radius: 20rpx; }
+.manifesto-grid text { display:block; }
+.manifesto-grid text:first-child { color: var(--aqua-300); font-size: 30rpx; font-weight: 800; }
+.manifesto-grid text:last-child { margin-top: 3rpx; color: rgba(224,251,251,.48); font-size: 14rpx; letter-spacing: 1rpx; }
+.lab-head { display:flex; align-items:flex-end; justify-content:space-between; margin: 58rpx 4rpx 22rpx; }
+.lab-head .section-title { margin-top: 6rpx; }
+.lab-note { color:var(--ink-3); font-size:20rpx; }
+.color-grid { display:flex; flex-wrap:wrap; gap:14rpx; }
+.color-cell { width: calc(33.333% - 10rpx); height:150rpx; padding:20rpx; border-radius:28rpx; box-shadow:0 12rpx 28rpx rgba(5,48,65,.10), inset 0 1rpx 0 rgba(255,255,255,.18); }
+.color-name { font-size:21rpx; font-weight:750; }
+.color-value { margin-top:48rpx; font-size:17rpx; opacity:.68; letter-spacing:1rpx; }
+.icon-grid { display:flex; flex-wrap:wrap; }
+.icon-cell { width:25%; padding:16rpx 6rpx; text-align:center; }
+.icon-well { display:flex; align-items:center; justify-content:center; width:72rpx; height:72rpx; margin:0 auto; border-radius:24rpx; background:radial-gradient(circle at 28% 16%,rgba(255,255,255,.94),transparent 42%),linear-gradient(145deg,rgba(139,244,235,.30),rgba(255,255,255,.86)); border:1rpx solid rgba(255,255,255,.94); box-shadow:0 8rpx 20rpx rgba(5,48,65,.07),inset 0 -1rpx 0 rgba(7,158,156,.08); }
+.icon-name { margin-top:8rpx; color:var(--ink-3); font-size:16rpx; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.row-line { height:1rpx; margin:0 18rpx; background:var(--stroke); transform:scaleY(.5); }

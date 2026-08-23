@@ -1,0 +1,7 @@
+<view class="bd-product bd-product-{{layout}} {{disabled ? 'bd-product-disabled' : ''}}" bindtap="tap">
+  <view class="bd-product-media"><bd-image src="{{image}}" alt="{{title}}" width="100%" height="100%" radius="{{24}}" /><view wx:if="{{tag}}" class="bd-product-tag">{{tag}}</view></view>
+  <view class="bd-product-main">
+    <view class="bd-product-title">{{title}}</view><view wx:if="{{desc}}" class="bd-product-desc">{{desc}}</view><slot />
+    <view class="bd-product-foot"><view class="bd-product-price"><text>{{currency}}</text>{{price}}<text wx:if="{{originalPrice}}" class="bd-product-original">{{currency}}{{originalPrice}}</text></view><view wx:if="{{actionText}}" class="bd-product-action"><bd-button size="md" shape="pill" block="{{false}}" bindtap="action">{{actionText}}</bd-button></view></view>
+  </view>
+</view>

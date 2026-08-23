@@ -1,44 +1,47 @@
 # Aqua UI WeApp
 
-A zero-dependency WeChat MiniProgram component library with a light Liquid Glass aesthetic — frosted-glass cards, aqua gradient mesh backgrounds, and a floating capsule dock. Pure WXML Components: no Tailwind, no build step — copy `components/` + `styles/tokens.wxss` and go.
+A premium native design system for WeChat MiniPrograms. Its Polar Ocean theme combines an airy polar canvas, deep-ocean focal surfaces, and restrained electric aqua—distinctive without compromising real-world readability.
 
-Design principles (colors chosen by measured WCAG contrast, not taste):
+[中文](README.md)
 
-- **Sunlight constraint**: content areas always light-background with dark ink (field/boat use cases)
-- **Bright aqua in a cage**: `#13ecf3` only ever sits on navy `#162455` (1.6:1 on white = broken, 12:1 on navy = stunning)
-- **Stable semantics**: confirm-green / action-orange / danger-red stay consistent across clients
+## Runnable showroom
 
-## Quick start
+The repository root is a complete MiniProgram with six pages:
 
-1. Copy `components/` into your MiniProgram root, and `@import` (or merge) `styles/tokens.wxss` at the top of `app.wxss`
-2. Declare components in page JSON, e.g. `"usingComponents": {"bd-card": "/components/bd-card/bd-card"}`
-3. Apply `.mesh` to the page root; use `<bd-card>` or `.glass` for cards
+- **Overview** presents typography, metrics, ocean cards, and activity rows in a realistic product screen.
+- **Basics** demonstrates buttons, surfaces, chips, fields, rows, skeletons, and empty states interactively.
+- **Controls** covers identity, data, selection, numeric input, search, and navigation controls.
+- **Feedback** covers notices, progress narratives, results, dialogs, and action sheets.
+- **Studio** documents the token palette, full icon set, and working photo-upload flow.
+- **Extensions** demonstrates the input, layout, selection, media, and commerce components identified by the shop audit.
 
-## Components (11)
+Import the root folder into WeChat DevTools. The public project uses `touristappid` as a placeholder; replace it in `project.config.json` if your DevTools version does not accept visitor mode.
 
-| Component | Purpose |
-|---|---|
-| bd-page | mesh background + safe area + optional navy chrome slot |
-| bd-button | primary (aqua gradient) / ghost (glass outline) / danger (de-escalated outline); loading/disabled; lg/md |
-| bd-card | glass card; padding normal/compact/flush; title prop or named slot |
-| bd-list-row | icon + title/desc + status slot; pressed state |
-| bd-chip | semantic badges (ok/warn/info/neutral/danger) |
-| bd-icon | 14-name inline SVG set (fish/camera/warn/home/plus/user/grid/list/flag/chevron/check/empty-doc/location/clock) |
-| bd-empty-state | four empty scenes (no-data/unbound/404/error); icon+title+desc+optional action |
-| bd-field | form field: label + required star + control slot + hint/error |
-| bd-photo-uploader | dashed frame + camera icon + counter + 3×3 preview + delete + disabled-full state |
-| bd-skeleton | list skeleton rows (row count, card-wrapped or bare) |
-| dock | floating capsule navigation; identity-driven items; active pill |
+## Principles
 
-## Design tokens
+- **Readable glass**: opacity and contrast come before blur.
+- **Ocean creates structure**: deep surfaces anchor important information instead of making every screen dark.
+- **Aqua signals importance**: vivid cyan is reserved for primary actions and active state.
+- **Editorial typography**: strong scale, tighter headings, and deliberate whitespace.
+- **Native and small**: WXML, WXSS, and CommonJS only; no runtime dependency or build step.
 
-All colors with measured WCAG contrast: [docs/design-tokens.md](docs/design-tokens.md).
+See [design tokens](docs/design-tokens.md) for the complete palette and usage rules.
 
-## Demo
+Motion uses shared 140–240ms tokens and is limited to state continuity. Overlays have interruptible entrance/exit states, while tabs, segmented controls, and the dock use a single moving indicator. Pass the same `reducedMotion` boolean to `bd-page` and animated components to remove translation and scale; the Feedback page includes a live reduced-motion switch. See the [motion guidelines](docs/motion-guidelines.md) for the full contract.
 
-`demo/` — e-commerce MiniProgram example (the largest MiniProgram category), landing progressively; live proving ground: [aqua-shop-weapp](https://github.com/getaskclaw/aqua-shop-weapp).
+## Components
 
-[中文 README](README.md)
+Fifty-five reusable native components are included. In addition to the original foundation, the library provides identity, data, selection, feedback, layout, media, popup, picker, and commerce primitives. The shop-driven extension set adds complete inputs, cell groups, generic popups, sidebars, sticky containers, calendars, generic/date-time/region pickers, resilient images, carousels, toasts, product cards, SKU selection, goods actions, and checkout bars.
+
+Copy `components/`, `utils/`, and `styles/tokens.wxss` into an existing MiniProgram, import the tokens once from `app.wxss`, then register the components you use.
+
+```xml
+<bd-card tone="ocean" title="Signature surface" subtitle="Put key information here">
+  <bd-button shape="pill">Get started</bd-button>
+</bd-card>
+```
+
+Run the repository checks with `npm test`.
 
 ## License
 

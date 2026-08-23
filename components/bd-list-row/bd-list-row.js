@@ -7,6 +7,7 @@ Component({
 
   properties: {
     icon: { type: String, value: '' }, // bd-icon 名
+    iconColor: { type: String, value: '#079e9c' },
     title: { type: String, value: '' },
     desc: { type: String, value: '' },
     arrow: { type: Boolean, value: false }

@@ -1,11 +1,13 @@
-// bd-button:三 variant(primary 青渐变 / ghost 玻璃描边 / danger 降级描边)
-// × 两 size(lg/md),loading/disabled 态吞掉 tap 不上抛。
+// Premium action primitive. Backwards compatible with v0.1 variants.
 'use strict'
 
 Component({
   properties: {
     variant: { type: String, value: 'primary' }, // primary | ghost | danger
     size: { type: String, value: 'lg' }, // lg | md
+    shape: { type: String, value: 'soft' }, // soft | pill
+    block: { type: Boolean, value: true },
+    ariaLabel: { type: String, value: '' },
     loading: { type: Boolean, value: false },
     disabled: { type: Boolean, value: false }
   },

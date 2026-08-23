@@ -1,0 +1,5 @@
+<view class="bd-divider bd-divider-{{align}} {{dashed ? 'bd-divider-dashed' : ''}}">
+  <view class="bd-divider-line bd-divider-before"></view>
+  <text wx:if="{{text}}" class="bd-divider-text">{{text}}</text>
+  <view class="bd-divider-line bd-divider-after"></view>
+</view>

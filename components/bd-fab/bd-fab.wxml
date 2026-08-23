@@ -1,0 +1,3 @@
+<view class="bd-fab bd-fab-{{position}} {{text ? 'bd-fab-wide' : ''}} {{disabled ? 'bd-fab-disabled' : ''}}" style="bottom:{{bottom}}rpx;" hover-class="bd-fab-hover" bindtap="tap">
+  <bd-icon name="{{icon}}" size="{{38}}" color="#041724" /><text wx:if="{{text}}">{{text}}</text>
+</view>

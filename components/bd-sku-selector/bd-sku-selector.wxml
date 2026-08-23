@@ -1,0 +1,6 @@
+<bd-popup visible="{{visible}}" title="{{title}}" bindclose="close">
+  <view class="bd-sku-summary"><bd-image src="{{image}}" width="150rpx" height="150rpx" radius="{{24}}" /><view><view class="bd-sku-price"><text>{{currency}}</text>{{price}}</view><view class="bd-sku-note">请选择商品规格与数量</view></view></view>
+  <view wx:for="{{viewGroups}}" wx:key="key" class="bd-sku-group"><view class="bd-sku-label">{{item.label}}</view><view class="bd-sku-options"><view wx:for="{{item.options}}" wx:for-item="option" wx:for-index="optionIndex" wx:key="value" class="bd-sku-option {{option.selected ? 'bd-sku-active' : ''}} {{option.disabled ? 'bd-sku-disabled' : ''}}" data-group="{{index}}" data-option="{{optionIndex}}" bindtap="choose">{{option.label}}</view></view></view>
+  <view class="bd-sku-quantity"><view><view class="bd-sku-label">购买数量</view><view class="bd-sku-note">最多 {{max}} 件</view></view><bd-stepper value="{{quantity}}" min="{{min}}" max="{{max}}" bindchange="quantityChange" /></view>
+  <view class="bd-sku-confirm"><bd-button size="md" bindtap="confirm">{{confirmText}}</bd-button></view>
+</bd-popup>

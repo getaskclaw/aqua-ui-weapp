@@ -1,0 +1,4 @@
+<view class="bd-cell-group-wrap {{inset ? 'bd-cell-group-inset' : ''}}">
+  <view wx:if="{{title || desc}}" class="bd-cell-group-head"><view class="bd-cell-group-title">{{title}}</view><view class="bd-cell-group-desc">{{desc}}</view><slot name="extra" /></view>
+  <view class="bd-cell-group bd-cell-group-{{tone}}"><slot /></view>
+</view>

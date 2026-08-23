@@ -1,0 +1,9 @@
+<view class="bd-accordion {{reducedMotion ? 'bd-motion-reduced' : ''}}">
+  <view wx:for="{{displayItems}}" wx:key="key" class="bd-accordion-item {{item.disabled ? 'bd-accordion-disabled' : ''}}">
+    <view class="bd-accordion-head" data-index="{{index}}" bindtap="toggle" aria-role="button" aria-expanded="{{item.open}}">
+      <view class="bd-accordion-title"><bd-icon wx:if="{{item.icon}}" name="{{item.icon}}" size="{{30}}" color="#079e9c" /><text>{{item.title}}</text></view>
+      <view class="bd-accordion-arrow {{item.open ? 'bd-accordion-arrow-on' : ''}}"><bd-icon name="chevron" size="{{30}}" color="#607b86" /></view>
+    </view>
+    <view wx:if="{{item.open}}" class="bd-accordion-content">{{item.content}}</view>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+<view class="bd-pagination {{disabled ? 'bd-pagination-disabled' : ''}}">
+  <view class="bd-page-btn {{current > 1 ? '' : 'bd-page-off'}}" bindtap="previous">上一页</view>
+  <view class="bd-page-count"><text class="bd-page-current">{{current}}</text><text> / {{total}}</text></view>
+  <view class="bd-page-btn bd-page-next {{current >= total ? 'bd-page-off' : ''}}" bindtap="next">下一页</view>
+</view>

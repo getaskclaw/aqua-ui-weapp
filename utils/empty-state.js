@@ -1,4 +1,4 @@
-// bd-empty-state 场景映射(WO-011):四种空态场景的默认文案/图标,
+// bd-empty-state scene map: four recovery scenarios with default copy and icons.
 // 全场景统一收口,页面不再逐页手写空态。纯 JS 无 wx 依赖,node 可测;
 // components/bd-empty-state 只做渲染,允许属性级覆盖默认值。
 'use strict'
@@ -13,7 +13,7 @@ const SCENES = {
   unbound: {
     icon: 'user',
     title: '尚未绑定',
-    desc: '绑定员工身份后可查看工作台内容',
+    desc: '完成账号绑定后即可查看相关内容',
     actionText: ''
   },
   'not-found': {

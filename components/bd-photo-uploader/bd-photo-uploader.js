@@ -1,7 +1,5 @@
-// bd-photo-uploader:虚线框 + camera 图标 + 计数提示 + 九宫格预览 + 删除。
-// 内核由 pages/report 上传逻辑迁移而来:wx.chooseMedia 选图 → 超 10 MiB
-// 先压缩复检 → 临时文件持久化到用户目录(离线草稿重启可续传)。
-// 计数/上限纯逻辑在 utils/photo-uploader.js(node 可测),本组件只做胶水。
+// Premium 3x3 photo picker: choose, compress, persist, preview, and remove.
+// Limits are kept in the pure, testable utils/photo-uploader.js module.
 'use strict'
 
 const {
@@ -20,12 +18,14 @@ Component({
   properties: {
     photos: { type: Array, value: [] },
     max: { type: Number, value: MAX_PHOTOS },
-    disabled: { type: Boolean, value: false }
+    disabled: { type: Boolean, value: false },
+    reducedMotion: { type: Boolean, value: false }
   },
 
   data: {
     canAddPhotos: true,
-    countLabel: '0/9'
+    countLabel: '0/9',
+    busy: false
   },
 
   observers: {
@@ -39,9 +39,10 @@ Component({
 
   methods: {
     addPhotos() {
-      if (this.data.disabled) return
+      if (this.data.disabled || this.data.busy) return
       const slots = remainingSlots(this.data.photos.length, this.data.max)
       if (slots <= 0) return
+      this.setData({ busy: true })
       wx.chooseMedia({
         count: slots,
         mediaType: ['image'],
@@ -51,28 +52,30 @@ Component({
           const fs = wx.getFileSystemManager()
           const saved = []
           let oversized = 0
-          for (const file of result.tempFiles) {
-            const usable = await this.fitUnderLimit(file.tempFilePath, file.size)
-            if (!usable) {
-              oversized += 1
-              continue
+          try {
+            for (const file of result.tempFiles) {
+              const usable = await this.fitUnderLimit(file.tempFilePath, file.size)
+              if (!usable) {
+                oversized += 1
+                continue
+              }
+              try {
+                const target = `${wx.env.USER_DATA_PATH}/aqua-ui-${Date.now()}-${saved.length}.img`
+                fs.copyFileSync(usable, target)
+                saved.push(target)
+              } catch (error) {
+                saved.push(usable)
+              }
             }
-            try {
-              const target = `${wx.env.USER_DATA_PATH}/report-${Date.now()}-${saved.length}.img`
-              fs.copyFileSync(usable, target)
-              saved.push(target)
-            } catch (error) {
-              saved.push(usable)
-            }
+            const merged = mergePhotos(this.data.photos, saved, this.data.max)
+            this._emit(merged.photos)
+            const dropped = oversized + merged.overflow
+            if (dropped) wx.showToast({ title: oversizeToast(dropped), icon: 'none', duration: 2500 })
+          } finally {
+            this.setData({ busy: false })
           }
-          // 兜底裁剪到上限(并发/异常路径绝不静默突破)
-          const merged = mergePhotos(this.data.photos, saved, this.data.max)
-          this._emit(merged.photos)
-          const dropped = oversized + merged.overflow
-          if (dropped) {
-            wx.showToast({ title: oversizeToast(dropped), icon: 'none', duration: 2500 })
-          }
-        }
+        },
+        fail: () => this.setData({ busy: false })
       })
     },
 
@@ -99,7 +102,12 @@ Component({
     removePhoto(event) {
       if (this.data.disabled) return
       const index = Number(event.currentTarget.dataset.index)
+      const removed = this.data.photos[index]
       this._emit(removeAt(this.data.photos, index))
+      // Only clean up files created and owned by this component.
+      if (removed && removed.indexOf(`${wx.env.USER_DATA_PATH}/aqua-ui-`) === 0) {
+        wx.getFileSystemManager().unlink({ filePath: removed, fail: () => {} })
+      }
     },
 
     preview(event) {

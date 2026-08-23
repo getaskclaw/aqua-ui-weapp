@@ -1,4 +1,4 @@
-// bd-icon 命名图标集(WO-011):内联 SVG 注册表,dock 与页面统一引用,
+// bd-icon named inline SVG registry shared by dock and content components.
 // 替换全部 unicode 占位图标。纯 JS 无 wx 依赖,node --test 直接可测;
 // components/bd-icon 只做 data URI 渲染胶水。
 //
@@ -11,7 +11,7 @@
 //     token 改版时须同步此处(勿当硬编码清理)。
 'use strict'
 
-const DEFAULT_COLOR = '#41626f' // var(--sub)
+const DEFAULT_COLOR = '#607b86' // var(--ink-3)
 
 const ICONS = {
   // ---- 页面/场景 ----
@@ -23,6 +23,26 @@ const ICONS = {
   'empty-doc': '<path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5V8h4"/><path d="M9.5 13h5"/><path d="M9.5 16.5h3.5"/>',
   location: '<path d="M12 21s-6.5-5.7-6.5-10.5A6.5 6.5 0 0 1 12 4a6.5 6.5 0 0 1 6.5 6.5C18.5 15.3 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.3"/>',
   clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.5 2"/>',
+  sparkles: '<path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5z"/><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8z"/><path d="M5 14l.7 1.8 1.8.7-1.8.7L5 19l-.7-1.8-1.8-.7 1.8-.7z"/>',
+  shield: '<path d="M12 3l7 3v5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6z"/><path d="M8.5 12l2.3 2.3 4.7-5"/>',
+  chart: '<path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15l3-4 3 2 5-7"/>',
+  search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/>',
+  scan: '<path d="M4 9V5a1 1 0 0 1 1-1h4"/><path d="M15 4h4a1 1 0 0 1 1 1v4"/><path d="M20 15v4a1 1 0 0 1-1 1h-4"/><path d="M9 20H5a1 1 0 0 1-1-1v-4"/><path d="M7 12h10"/>',
+  bell: '<path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 8h18c0-1-3-1-3-8z"/><path d="M10 21h4"/>',
+  upload: '<path d="M12 16V4"/><path d="M7.5 8.5L12 4l4.5 4.5"/><path d="M5 14v5h14v-5"/>',
+  palette: '<path d="M12 3a9 9 0 1 0 0 18h1.2a1.8 1.8 0 0 0 0-3.6h-.8a1.6 1.6 0 0 1 0-3.2H17A4 4 0 0 0 21 10c0-4-4-7-9-7z"/><circle cx="7.5" cy="9" r="1" fill="{c}" stroke="none"/><circle cx="11" cy="6.5" r="1" fill="{c}" stroke="none"/><circle cx="15" cy="7" r="1" fill="{c}" stroke="none"/>',
+  moon: '<path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5z"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  'arrow-right': '<path d="M5 12h14"/><path d="M14 7l5 5-5 5"/>',
+  cart: '<path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L20.5 8H6"/><circle cx="10" cy="20" r="1" fill="{c}"/><circle cx="17" cy="20" r="1" fill="{c}"/>',
+  layers: '<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/>',
+  code: '<path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M14 4l-4 16"/>',
+  compass: '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+  wave: '<path d="M3 9c2.2 0 2.2 2 4.5 2S9.8 9 12 9s2.2 2 4.5 2S18.8 9 21 9"/><path d="M3 14c2.2 0 2.2 2 4.5 2s2.3-2 4.5-2 2.2 2 4.5 2 2.3-2 4.5-2"/>',
+  activity: '<path d="M3 12h4l2-6 4 12 2-6h6"/>',
+  image: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="M4 17l5-5 3.5 3.5 2-2L20 19"/>',
+  inbox: '<path d="M4 5h16l2 9v5H2v-5z"/><path d="M2 14h6l1.5 2h5L16 14h6"/>',
+  settings: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1A1.7 1.7 0 0 0 9 4.6 1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1z"/>',
   // ---- dock 五项(home + 其余四项;staff dock 复用同集) ----
   home: '<path d="M4 11l8-7 8 7"/><path d="M6.5 9.2V20h11V9.2"/>',
   plus: '<path d="M12 5v14"/><path d="M5 12h14"/>',
@@ -43,7 +63,7 @@ function hasIcon(name) {
 // 生成完整 SVG 文本;未知名返回 null(调用方决定降级,注册表不猜)。
 function iconSvg(name, color = DEFAULT_COLOR) {
   if (!hasIcon(name)) return null
-  const body = ICONS[name].replaceAll('{c}', color)
+  const body = ICONS[name].split('{c}').join(color)
   return (
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"` +
     ` stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`

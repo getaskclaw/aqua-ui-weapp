@@ -1,5 +1,7 @@
-<!-- 悬浮 dock:玻璃胶囊底栏。图标为 bd-icon 命名 SVG(WO-011)。 -->
-<view class="dock">
+<view class="dock {{reducedMotion ? 'bd-motion-reduced' : ''}}">
+  <view class="dock-track">
+    <view wx:if="{{indicatorVisible}}" class="dock-indicator" style="{{indicatorStyle}}"></view>
+  </view>
   <view
     wx:for="{{items}}"
     wx:key="key"
@@ -7,11 +9,14 @@
     data-url="{{item.url}}"
     bindtap="open"
     hover-class="dock-item-hover"
+    aria-role="tab"
+    aria-label="{{item.label}}"
+    aria-selected="{{active === item.key}}"
   >
     <bd-icon
       name="{{item.icon}}"
-      size="{{44}}"
-      color="{{active === item.key ? '#088896' : '#41626f'}}"
+      size="{{40}}"
+      color="{{active === item.key ? '#041724' : '#607b86'}}"
     />
     <text class="dock-label">{{item.label}}</text>
   </view>

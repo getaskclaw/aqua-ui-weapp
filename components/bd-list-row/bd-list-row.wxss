@@ -1,19 +1,30 @@
 .bd-row {
   display: flex;
   align-items: center;
-  gap: 20rpx;
-  padding: 26rpx 28rpx;
+  gap: 18rpx;
+  min-height: 116rpx;
+  padding: 20rpx 22rpx;
   box-sizing: border-box;
+  border-radius: 24rpx;
+  transition: background 160ms ease, transform 160ms ease;
 }
 
 .bd-row-hover {
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(139, 244, 235, 0.16);
+  transform: scale(.99);
 }
 
 .bd-row-icon {
   flex: none;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 22rpx;
+  background: linear-gradient(145deg, rgba(139,244,235,.26), rgba(255,255,255,.72));
+  border: 1rpx solid rgba(255,255,255,.86);
+  box-shadow: 0 8rpx 18rpx rgba(5,48,65,.07);
 }
 
 .bd-row-main {
@@ -22,8 +33,8 @@
 }
 
 .bd-row-title {
-  font-size: 32rpx;
-  font-weight: 600;
+  font-size: 29rpx;
+  font-weight: 720;
   color: var(--ink);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -31,9 +42,9 @@
 }
 
 .bd-row-desc {
-  font-size: 26rpx;
-  color: var(--sub);
-  margin-top: 6rpx;
+  font-size: 23rpx;
+  color: var(--ink-3);
+  margin-top: 3rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

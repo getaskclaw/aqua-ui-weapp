@@ -1,55 +1,117 @@
-/* Aqua UI WeApp 设计令牌与材质 —— 实测对比度定色,详见 docs/design-tokens.md */
+/* Aqua UI — Polar Ocean. Import once from app.wxss. */
 page {
-  --navy: #162455;
-  --navy-deep: #091444;
-  --aqua: #13ecf3;
-  --p500: #12bcd0;
-  --p600: #0aa0b4;
-  --p700: #088896;
-  --bg: #eef4f7;
-  --card: rgba(255, 255, 255, 0.45);
-  --ink: #0b2230;
-  --sub: #41626f;
-  --ok: #1c7c54;
-  --warn: #b3541e;
-  --danger: #b00020;
+  --ocean-950: #041724;
+  --ocean-900: #07283b;
+  --ocean-800: #0a3a52;
+  --ocean-700: #0d536b;
+  --aqua-300: #8bf4eb;
+  --aqua-400: #35e3d5;
+  --aqua-500: #0bc9bd;
+  --aqua-600: #079e9c;
+  --cyan-500: #16b9e6;
+  --canvas: #edf8f8;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-solid: #f8fdfd;
+  --surface-soft: rgba(234, 249, 249, 0.78);
+  --glass-regular: rgba(246, 253, 253, 0.76);
+  --glass-clear: rgba(255, 255, 255, 0.44);
+  --glass-edge: rgba(255, 255, 255, 0.92);
+  --stroke: rgba(8, 61, 79, 0.10);
+  --stroke-strong: rgba(8, 61, 79, 0.18);
+  --ink: #092637;
+  --ink-2: #284b5a;
+  --ink-3: #607b86;
+  --inverse: #f4ffff;
+  --success: #09845f;
+  --warning: #b45f12;
+  --danger: #c43d4e;
+  --info: #087ca5;
 
-  background: var(--bg);
-  font-size: 32rpx;
+  /* Motion vocabulary. Components may override these on an ancestor. */
+  --motion-fast: 140ms;
+  --motion-standard: 200ms;
+  --motion-overlay: 240ms;
+  --ease-aqua: cubic-bezier(.2, .8, .2, 1);
+  --ease-aqua-exit: cubic-bezier(.4, 0, 1, 1);
+
+  /* v0.1 compatibility aliases */
+  --navy: var(--ocean-900);
+  --navy-deep: var(--ocean-950);
+  --aqua: var(--aqua-400);
+  --p500: var(--aqua-500);
+  --p600: var(--aqua-600);
+  --p700: #08777b;
+  --bg: var(--canvas);
+  --card: var(--surface);
+  --sub: var(--ink-2);
+  --ok: var(--success);
+  --warn: var(--warning);
+
+  background: var(--canvas);
   color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 30rpx;
+  line-height: 1.5;
 }
 
-.mesh 浓渐变网底:三团 radial-gradient(青 #7fdcee / 薄荷 #9fe8d8 /
-   雾蓝 #b9d9f5)+ 线性浅底。玻璃卡需要网底「有东西可透」;
-   内容区永远浅底深字(户外强光约束)。 */
+/* Put this class on the page root when the application reduces motion. */
+.aqua-reduced-motion {
+  --motion-fast: 1ms;
+  --motion-standard: 1ms;
+  --motion-overlay: 1ms;
+}
+
 .mesh {
   min-height: 100vh;
   box-sizing: border-box;
   background:
-    radial-gradient(90% 45% at 85% -5%, #7fdcee 0%, transparent 60%),
-    radial-gradient(80% 40% at -15% 25%, #9fe8d8 0%, transparent 65%),
-    radial-gradient(90% 50% at 60% 115%, #b9d9f5 0%, transparent 60%),
-    linear-gradient(160deg, #eaf6f8 0%, #e3f0f4 50%, #e9f3ef 100%);
+    radial-gradient(100% 48% at 100% 0%, rgba(53, 227, 213, 0.30) 0%, transparent 62%),
+    radial-gradient(80% 42% at -10% 20%, rgba(22, 185, 230, 0.18) 0%, transparent 68%),
+    radial-gradient(72% 38% at 90% 82%, rgba(139, 244, 235, 0.20) 0%, transparent 70%),
+    linear-gradient(165deg, #f5fcfc 0%, #eaf7f7 52%, #e6f3f5 100%);
 }
 
-.glass 磨砂玻璃卡:半透白底 + 背景模糊/饱和 + 高光描边 + 软阴影。
-   兼容性:旧机不支持 backdrop-filter 时该声明被忽略,自然降级为
-   半透明白卡(--card 自带 0.45 透明度),不垫 fallback 色块。
-   .card 与 .glass 同材质(纯样式替换,语义不变),.card 另带
-   卡片留白/间距。 */
 .glass,
 .card {
-  background: var(--card);
-  backdrop-filter: blur(24px) saturate(1.4);
-  -webkit-backdrop-filter: blur(24px) saturate(1.4);
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  border-radius: 26rpx;
+  background: var(--surface);
+  -webkit-backdrop-filter: blur(28px) saturate(1.35);
+  backdrop-filter: blur(28px) saturate(1.35);
+  border: 1rpx solid rgba(255, 255, 255, 0.86);
   box-shadow:
-    0 12rpx 32rpx rgba(14, 70, 90, 0.12),
-    inset 0 1rpx 0 rgba(255, 255, 255, 0.85);
+    0 20rpx 56rpx rgba(5, 48, 65, 0.10),
+    0 2rpx 8rpx rgba(5, 48, 65, 0.05),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.92);
+}
+
+.hairline {
+  height: 1rpx;
+  background: var(--stroke);
+  transform: scaleY(0.5);
+}
+
+.eyebrow {
+  color: var(--aqua-600);
+  font-size: 22rpx;
+  font-weight: 750;
+  letter-spacing: 3rpx;
+}
+
+.display-title {
+  color: var(--ink);
+  font-size: 56rpx;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -2rpx;
+}
+
+.section-title {
+  color: var(--ink);
+  font-size: 32rpx;
+  font-weight: 750;
+  letter-spacing: -0.5rpx;
 }
 
 .dock-space {
-  padding-bottom: 240rpx;
+  padding-bottom: 210rpx !important;
 }
 

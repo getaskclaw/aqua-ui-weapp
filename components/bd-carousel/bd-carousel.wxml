@@ -1,0 +1,6 @@
+<view class="bd-carousel" style="height:{{height}}rpx">
+  <swiper class="bd-carousel-swiper" current="{{current}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" bindchange="change">
+    <swiper-item wx:for="{{items}}" wx:key="index"><view class="bd-carousel-item" data-index="{{index}}" bindtap="select"><image class="bd-carousel-image" src="{{item.url || item.image || item}}" mode="{{imageMode}}" /><view wx:if="{{item.title || item.desc}}" class="bd-carousel-caption"><view class="bd-carousel-title">{{item.title}}</view><view class="bd-carousel-desc">{{item.desc}}</view></view></view></swiper-item>
+  </swiper>
+  <view wx:if="{{indicator && items.length > 1}}" class="bd-carousel-dots"><view wx:for="{{items}}" wx:key="index" class="bd-carousel-dot {{index === current ? 'bd-carousel-dot-active' : ''}}"></view></view>
+</view>

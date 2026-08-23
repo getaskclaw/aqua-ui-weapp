@@ -1,1 +1,1 @@
-<view class="bd-chip bd-chip-{{semantic}}">{{text}}<slot /></view>
+<view class="bd-chip bd-chip-{{semantic}} {{inverse ? 'bd-chip-inverse' : ''}}"><view wx:if="{{dot}}" class="bd-chip-dot"></view>{{text}}<slot /></view>

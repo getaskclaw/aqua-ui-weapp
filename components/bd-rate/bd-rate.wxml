@@ -1,0 +1,6 @@
+<view class="bd-rate-wrap {{disabled ? 'bd-rate-disabled' : ''}}">
+  <view class="bd-rate">
+    <text wx:for="{{stars}}" wx:key="*this" class="bd-rate-star {{item > value ? '' : 'bd-rate-on'}}" style="font-size:{{size}}rpx;" data-value="{{item}}" bindtap="choose">★</text>
+  </view>
+  <text wx:if="{{label}}" class="bd-rate-label">{{label}}</text>
+</view>

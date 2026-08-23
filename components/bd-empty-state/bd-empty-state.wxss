@@ -2,23 +2,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 96rpx 48rpx;
+  padding: 76rpx 44rpx;
+  text-align: center;
+}
+
+.bd-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 136rpx;
+  height: 136rpx;
+  border-radius: 48rpx;
+  background: radial-gradient(circle at 32% 26%, #ffffff, rgba(139,244,235,.28));
+  border: 1rpx solid rgba(255,255,255,.9);
+  box-shadow: 0 20rpx 44rpx rgba(5,48,65,.1);
 }
 
 .bd-empty-title {
-  margin-top: 24rpx;
-  font-size: 34rpx;
-  font-weight: 700;
+  margin-top: 30rpx;
+  font-size: 32rpx;
+  font-weight: 760;
   color: var(--ink);
 }
 
 .bd-empty-desc {
-  margin-top: 12rpx;
-  font-size: 28rpx;
-  color: var(--sub);
+  max-width: 480rpx;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: var(--ink-3);
   text-align: center;
 }
 
 .bd-empty-action {
-  margin-top: 32rpx;
+  min-width: 220rpx;
+  margin-top: 30rpx;
 }

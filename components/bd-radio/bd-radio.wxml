@@ -1,0 +1,6 @@
+<view class="bd-radio-group bd-radio-{{direction}}">
+  <view wx:for="{{items}}" wx:key="value" class="bd-radio-item {{disabled || item.disabled ? 'bd-radio-disabled' : ''}}" data-index="{{index}}" bindtap="choose">
+    <view class="bd-radio-ring {{value === item.value ? 'bd-radio-on' : ''}}"><view class="bd-radio-dot"></view></view>
+    <view class="bd-radio-copy"><text class="bd-radio-label">{{item.label}}</text><text wx:if="{{item.desc}}" class="bd-radio-desc">{{item.desc}}</text></view>
+  </view>
+</view>

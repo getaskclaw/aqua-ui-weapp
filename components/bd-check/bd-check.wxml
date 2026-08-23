@@ -1,0 +1,4 @@
+<view class="bd-check-row {{disabled ? 'bd-check-disabled' : ''}}" bindtap="toggle">
+  <view class="bd-check-box bd-check-{{shape}} {{checked ? 'bd-check-on' : ''}}"><bd-icon wx:if="{{checked}}" name="check" size="{{28}}" color="#041724" /></view>
+  <view class="bd-check-copy"><text class="bd-check-label">{{label}}</text><text wx:if="{{desc}}" class="bd-check-desc">{{desc}}</text></view>
+</view>

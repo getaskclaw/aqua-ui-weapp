@@ -1,0 +1,1 @@
+.bd-slider-wrap{width:100%}.bd-slider-head{display:flex;justify-content:space-between;margin-bottom:2rpx;color:var(--ink-2);font-size:22rpx;font-weight:650}.bd-slider-wrap slider{margin-left:0;margin-right:0}

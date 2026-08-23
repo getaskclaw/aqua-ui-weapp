@@ -1,0 +1,5 @@
+<view class="bd-stepper {{disabled ? 'bd-stepper-disabled' : ''}}">
+  <view class="bd-stepper-btn {{value > min ? '' : 'bd-stepper-off'}}" bindtap="minus">−</view>
+  <text class="bd-stepper-value">{{value}}</text>
+  <view class="bd-stepper-btn bd-stepper-plus {{value >= max ? 'bd-stepper-off' : ''}}" bindtap="plus"><bd-icon name="plus" size="{{28}}" color="#041724" /></view>
+</view>

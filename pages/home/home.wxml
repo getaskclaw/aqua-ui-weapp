@@ -1,0 +1,54 @@
+<bd-page chrome title="水境组件库" subtitle="极地海洋 · 二〇二六" topInset="{{topInset}}" dockSpace>
+  <view slot="chrome" class="live-pill"><view class="live-dot"></view>原生运行</view>
+
+  <view class="hero">
+    <view class="hero-orb hero-orb-one"></view>
+    <view class="hero-orb hero-orb-two"></view>
+    <view class="hero-content">
+      <view class="hero-kicker"><bd-icon name="sparkles" size="{{28}}" color="#079e9c" /> 设计系统</view>
+      <view class="hero-title"><view>让小程序，</view><view>拥有旗舰质感。</view></view>
+      <view class="hero-copy">克制的玻璃、深海层次与清晰的信息秩序。为真实业务而设计，不为特效牺牲可读性。</view>
+      <view class="hero-actions">
+        <bd-button bindtap="openComponents">探索组件 <bd-icon name="arrow-right" size="{{30}}" color="#041724" /></bd-button>
+        <bd-button variant="ghost" size="md" bindtap="openExtensions">查看业务扩展</bd-button>
+      </view>
+    </view>
+  </view>
+
+  <view class="metric-grid">
+    <view wx:for="{{metrics}}" wx:key="label" class="metric-item">
+      <view class="metric-value">{{item.value}}</view>
+      <view class="metric-label">{{item.label}}</view>
+      <view class="metric-note">{{item.note}}</view>
+    </view>
+  </view>
+
+  <view class="section-head">
+    <view><view class="eyebrow">标志风格</view><view class="section-title">一套系统，两种气质</view></view>
+    <bd-chip semantic="ok" text="已就绪" dot />
+  </view>
+
+  <bd-card tone="ocean" padding="normal">
+    <view class="ocean-top">
+      <view class="ocean-icon"><bd-icon name="compass" size="{{48}}" color="#8bf4eb" /></view>
+      <bd-chip semantic="info" text="深海表面" inverse />
+    </view>
+    <view class="ocean-title"><view>深色用来建立秩序，</view><view>亮青只负责点亮重点。</view></view>
+    <view class="ocean-spectrum"><view></view><view></view><view></view><view></view><view></view></view>
+    <view class="ocean-caption">深海九五〇 → 水色三〇〇</view>
+  </bd-card>
+
+  <view class="section-head compact-head">
+    <view><view class="eyebrow">系统状态</view><view class="section-title">设计系统状态</view></view>
+  </view>
+  <bd-card tone="solid" padding="compact">
+    <block wx:for="{{activity}}" wx:key="title">
+      <bd-list-row icon="{{item.icon}}" title="{{item.title}}" desc="{{item.desc}}">
+        <bd-chip slot="status" semantic="neutral" text="{{item.status}}" />
+      </bd-list-row>
+      <view wx:if="{{index !== activity.length - 1}}" class="row-line"></view>
+    </block>
+  </bd-card>
+
+  <bd-dock active="home" navItems="{{navItems}}" />
+</bd-page>

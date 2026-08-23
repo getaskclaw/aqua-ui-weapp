@@ -1,0 +1,1 @@
+<view class="{{enabled ? 'bd-sticky' : ''}}" style="top:{{top}}rpx;z-index:{{zIndex}}"><slot /></view>

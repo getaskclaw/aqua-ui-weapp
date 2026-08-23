@@ -1,0 +1,6 @@
+<view class="bd-steps bd-steps-{{direction}}">
+  <view wx:for="{{displayItems}}" wx:key="title" class="bd-step bd-step-{{item.status}}">
+    <view class="bd-step-rail"><view class="bd-step-node"><bd-icon wx:if="{{item.status === 'done'}}" name="check" size="{{24}}" color="#041724" /><text wx:else>{{item.index}}</text></view><view wx:if="{{!item.last}}" class="bd-step-line"></view></view>
+    <view class="bd-step-copy"><text class="bd-step-title">{{item.title}}</text><text wx:if="{{item.desc}}" class="bd-step-desc">{{item.desc}}</text></view>
+  </view>
+</view>

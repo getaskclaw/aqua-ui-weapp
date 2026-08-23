@@ -1,10 +1,14 @@
-<view class="bd-page mesh {{padded ? 'bd-page-padded' : ''}} {{dockSpace ? 'dock-space' : ''}}">
-  <view wx:if="{{chrome}}" class="bd-page-chrome">
+<view class="bd-page mesh {{dockSpace ? 'dock-space' : ''}} {{reducedMotion ? 'aqua-reduced-motion' : ''}}">
+  <view class="bd-page-safe" style="height:{{topInset}}px;"></view>
+  <view wx:if="{{chrome}}" class="bd-page-chrome" style="top:{{topInset}}px;">
     <view class="bd-page-title-wrap">
-      <view class="bd-page-accent"></view>
-      <view class="bd-page-title">{{title}}</view>
+      <view class="bd-page-mark"></view>
+      <view>
+        <view class="bd-page-title">{{title}}</view>
+        <view wx:if="{{subtitle}}" class="bd-page-subtitle">{{subtitle}}</view>
+      </view>
     </view>
     <view class="bd-page-extra"><slot name="chrome" /></view>
   </view>
-  <slot />
+  <view class="bd-page-content {{padded ? 'bd-page-content-padded' : ''}}"><slot /></view>
 </view>

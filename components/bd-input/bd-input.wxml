@@ -1,0 +1,9 @@
+<view class="bd-input-wrap {{error ? 'bd-input-error' : ''}} {{disabled ? 'bd-input-disabled' : ''}}">
+  <view wx:if="{{label}}" class="bd-input-label"><text wx:if="{{required}}" class="bd-input-required">*</text>{{label}}</view>
+  <view class="bd-input-control">
+    <textarea wx:if="{{multiline}}" class="bd-input-native bd-input-area" value="{{value}}" placeholder="{{placeholder}}" placeholder-class="bd-input-placeholder" maxlength="{{maxlength}}" disabled="{{disabled}}" bindinput="input" bindfocus="focus" bindblur="blur" />
+    <input wx:else class="bd-input-native" value="{{value}}" placeholder="{{placeholder}}" placeholder-class="bd-input-placeholder" type="{{type}}" password="{{password}}" maxlength="{{maxlength}}" disabled="{{disabled}}" bindinput="input" bindfocus="focus" bindblur="blur" />
+    <view wx:if="{{clearable && value && !disabled}}" class="bd-input-clear" bindtap="clear" aria-role="button" aria-label="清空">×</view>
+  </view>
+  <view wx:if="{{error || hint}}" class="bd-input-help">{{error || hint}}</view>
+</view>

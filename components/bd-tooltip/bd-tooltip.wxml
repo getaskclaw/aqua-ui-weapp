@@ -1,0 +1,4 @@
+<view class="bd-tooltip-wrap" bindtap="toggle">
+  <slot />
+  <view wx:if="{{visible}}" class="bd-tooltip bd-tooltip-{{placement}}">{{content}}<view class="bd-tooltip-arrow"></view></view>
+</view>

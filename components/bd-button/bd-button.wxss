@@ -1,65 +1,98 @@
-/* bd-button:主按钮青渐变(p500→p600,按压深一档),ghost/danger 均为
-   描边降级形态——danger 不做红实底,避免渔民端误触恐慌。 */
 .bd-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12rpx;
+  position: relative;
   box-sizing: border-box;
-  border-radius: 16rpx;
-  font-weight: 600;
+  overflow: hidden;
+  border: 1rpx solid transparent;
+  font-weight: 720;
+  letter-spacing: 0.5rpx;
+  transition: transform 160ms ease, opacity 160ms ease;
 }
 
+.bd-btn::before {
+  content: '';
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 2rpx;
+  height: 2rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.92), transparent);
+  pointer-events: none;
+}
+
+.bd-btn-block { display: flex; width: 100%; }
+.bd-btn-inline { width: auto; }
+.bd-btn-soft { border-radius: 24rpx; }
+.bd-btn-pill { border-radius: 999rpx; }
+
 .bd-btn-lg {
-  font-size: 36rpx;
-  padding: 24rpx 32rpx;
+  min-height: 104rpx;
+  padding: 24rpx 38rpx;
+  font-size: 32rpx;
 }
 
 .bd-btn-md {
-  font-size: 30rpx;
-  padding: 16rpx 28rpx;
+  min-height: 76rpx;
+  padding: 14rpx 28rpx;
+  font-size: 27rpx;
 }
 
 .bd-btn-primary {
-  background: linear-gradient(135deg, var(--p500) 0%, var(--p600) 100%);
-  color: #ffffff;
-  box-shadow: 0 8rpx 20rpx rgba(10, 160, 180, 0.28);
+  color: var(--ocean-950);
+  background:
+    radial-gradient(90% 130% at 18% -20%, rgba(255,255,255,.74), transparent 50%),
+    linear-gradient(120deg, var(--aqua-300) 0%, var(--aqua-400) 46%, #24c8e8 100%);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  backdrop-filter: blur(18px) saturate(1.5);
+  border-color: rgba(255, 255, 255, 0.54);
+  box-shadow:
+    0 18rpx 38rpx rgba(9,158,156,.27),
+    inset 0 2rpx 0 rgba(255,255,255,.68),
+    inset 0 -3rpx 10rpx rgba(7,158,156,.16);
 }
 
 .bd-btn-hover-primary {
-  background: linear-gradient(135deg, var(--p600) 0%, var(--p700) 100%);
+  transform: scale(0.985);
+  background: linear-gradient(120deg, var(--aqua-400), var(--cyan-500));
 }
 
 .bd-btn-ghost {
-  background: rgba(255, 255, 255, 0.5);
-  color: var(--p700);
-  border: 2rpx solid var(--p500);
+  color: var(--ocean-800);
+  background: linear-gradient(145deg, rgba(255,255,255,.72), rgba(238,250,250,.58));
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border-color: var(--stroke-strong);
+  box-shadow: inset 0 1rpx 0 rgba(255,255,255,.88);
 }
 
 .bd-btn-hover-ghost {
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.92);
+  transform: scale(0.985);
 }
 
 .bd-btn-danger {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 246, 247, 0.84);
   color: var(--danger);
-  border: 2rpx solid var(--danger);
+  border-color: rgba(196, 61, 78, 0.22);
 }
 
 .bd-btn-hover-danger {
-  background: rgba(176, 0, 32, 0.08);
+  background: rgba(196, 61, 78, 0.12);
+  transform: scale(0.985);
 }
 
-.bd-btn-off {
-  opacity: 0.5;
-}
+.bd-btn-off { opacity: 0.46; box-shadow: none; }
+.bd-btn-content { display: flex; align-items: center; justify-content: center; }
 
-/* loading 转圈:双弧描边,primary 白弧、描边形态随文字色 */
 .bd-btn-spinner {
-  width: 30rpx;
-  height: 30rpx;
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 14rpx;
   border-radius: 50%;
-  border: 4rpx solid currentColor;
+  border: 3rpx solid currentColor;
   border-top-color: transparent;
   animation: bd-btn-spin 0.8s linear infinite;
 }

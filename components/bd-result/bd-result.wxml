@@ -1,0 +1,7 @@
+<view class="bd-result bd-result-{{status}} {{resultEntering ? 'bd-result-enter' : ''}} {{reducedMotion ? 'bd-motion-reduced' : ''}}">
+  <view class="bd-result-icon"><bd-icon name="{{icon}}" size="{{68}}" color="currentColor" /></view>
+  <view class="bd-result-title">{{title}}</view>
+  <view wx:if="{{desc}}" class="bd-result-desc">{{desc}}</view>
+  <view class="bd-result-extra"><slot /></view>
+  <view wx:if="{{actionText}}" class="bd-result-action"><bd-button size="md" bindtap="action">{{actionText}}</bd-button></view>
+</view>

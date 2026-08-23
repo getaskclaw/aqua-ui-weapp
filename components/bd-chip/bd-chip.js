@@ -5,6 +5,8 @@
 Component({
   properties: {
     semantic: { type: String, value: 'neutral' }, // ok | warn | info | neutral | danger
-    text: { type: String, value: '' }
+    text: { type: String, value: '' },
+    dot: { type: Boolean, value: false },
+    inverse: { type: Boolean, value: false }
   }
 })

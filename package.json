@@ -1,0 +1,10 @@
+{
+  "name": "aqua-ui-weapp",
+  "version": "0.2.0",
+  "description": "Premium zero-dependency native component system for WeChat MiniPrograms",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/getaskclaw/aqua-ui-weapp",
+  "scripts": {
+    "test": "node tests/smoke.js"
+  }
+}
