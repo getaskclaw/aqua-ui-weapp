@@ -5,6 +5,7 @@ const { NAV_ITEMS } = require('../../utils/nav')
 Page({
   data: {
     topInset: 24,
+    reducedMotion: false,
     navItems: NAV_ITEMS,
     loading: false,
     showSkeleton: false,
@@ -17,7 +18,8 @@ Page({
   },
 
   onLoad() {
-    this.setData({ topInset: getApp().globalData.statusBarHeight })
+    const app = getApp()
+    this.setData({ topInset: app.globalData.statusBarHeight, reducedMotion: Boolean(app.globalData.reducedMotion) })
   },
 
   demoLoading() {

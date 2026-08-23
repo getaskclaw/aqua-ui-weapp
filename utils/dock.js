@@ -6,7 +6,7 @@ const MAX_DOCK_ITEMS = 5
 function normalizeNavItems(items) {
   if (!Array.isArray(items)) return []
   return items
-    .filter((item) => item && item.key && item.label && item.icon && item.url)
+    .filter((item) => item && (typeof item.key === 'string' || typeof item.key === 'number') && item.label && item.icon && item.url)
     .slice(0, MAX_DOCK_ITEMS)
     .map((item) => ({ key: item.key, label: item.label, icon: item.icon, url: item.url }))
 }

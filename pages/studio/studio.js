@@ -15,6 +15,7 @@ const ICON_LABELS = {
 Page({
   data: {
     topInset: 24,
+    reducedMotion: false,
     navItems: NAV_ITEMS,
     photos: [],
     icons: iconNames().map((name) => ({ name, label: ICON_LABELS[name] || '图标' })),
@@ -29,7 +30,8 @@ Page({
   },
 
   onLoad() {
-    this.setData({ topInset: getApp().globalData.statusBarHeight })
+    const app = getApp()
+    this.setData({ topInset: app.globalData.statusBarHeight, reducedMotion: Boolean(app.globalData.reducedMotion) })
   },
 
   onPhotos(event) {

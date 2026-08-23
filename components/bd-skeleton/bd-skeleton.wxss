@@ -4,6 +4,11 @@
   border-radius: 36rpx;
 }
 
+.bd-skeleton {
+  position: relative;
+  overflow: hidden;
+}
+
 .bd-skel-row {
   padding: 24rpx 0;
 }
@@ -14,15 +19,20 @@
 
 .bd-skel-block {
   height: 28rpx;
-  position: relative;
   overflow: hidden;
   border-radius: 999rpx;
-  background: linear-gradient(90deg, rgba(8,61,79,.07), rgba(255,255,255,.65), rgba(8,61,79,.07));
-  background-size: 200% 100%;
-  animation: bd-skel-flow 1.6s ease-in-out infinite;
+  background: rgba(8,61,79,.08);
 }
 
-@keyframes bd-skel-flow {
-  0% { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
+.bd-skel-shimmer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent 25%, rgba(255,255,255,.58) 48%, transparent 72%);
+  transform: translate3d(-100%, 0, 0);
+  animation: bd-skel-flow 1.6s ease-in-out infinite;
+  animation-play-state: var(--motion-play-state, running);
+  will-change: transform;
 }
+
+@keyframes bd-skel-flow { to { transform: translate3d(100%, 0, 0); } }

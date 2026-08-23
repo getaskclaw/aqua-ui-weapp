@@ -1,5 +1,5 @@
 <view class="bd-sidebar {{compact ? 'bd-sidebar-compact' : ''}}">
-  <view wx:for="{{normalized}}" wx:key="normalizedKey" class="bd-sidebar-item {{item.normalizedKey === active ? 'bd-sidebar-active' : ''}} {{item.disabled ? 'bd-sidebar-disabled' : ''}}" data-index="{{index}}" bindtap="select">
+  <view wx:for="{{normalized}}" wx:key="normalizedKey" class="bd-sidebar-item {{item.selectionKey === active ? 'bd-sidebar-active' : ''}} {{item.disabled ? 'bd-sidebar-disabled' : ''}}" data-index="{{index}}" bindtap="select">
     <view class="bd-sidebar-mark"></view><view class="bd-sidebar-label">{{item.label}}</view><view wx:if="{{item.badge}}" class="bd-sidebar-badge">{{item.badge}}</view>
   </view>
 </view>

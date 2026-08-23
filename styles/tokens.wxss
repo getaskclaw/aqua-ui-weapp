@@ -33,6 +33,7 @@ page {
   --motion-overlay: 240ms;
   --ease-aqua: cubic-bezier(.2, .8, .2, 1);
   --ease-aqua-exit: cubic-bezier(.4, 0, 1, 1);
+  --motion-play-state: running;
 
   /* v0.1 compatibility aliases */
   --navy: var(--ocean-900);
@@ -59,6 +60,7 @@ page {
   --motion-fast: 1ms;
   --motion-standard: 1ms;
   --motion-overlay: 1ms;
+  --motion-play-state: paused;
 }
 
 .mesh {
@@ -74,8 +76,6 @@ page {
 .glass,
 .card {
   background: var(--surface);
-  -webkit-backdrop-filter: blur(28px) saturate(1.35);
-  backdrop-filter: blur(28px) saturate(1.35);
   border: 1rpx solid rgba(255, 255, 255, 0.86);
   box-shadow:
     0 20rpx 56rpx rgba(5, 48, 65, 0.10),

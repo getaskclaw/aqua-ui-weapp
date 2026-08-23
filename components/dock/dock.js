@@ -6,7 +6,7 @@ const { normalizeNavItems } = require('../../utils/dock')
 Component({
   properties: {
     // 当前页对应的项 key(home/report/mine/queue/detections/alerts)
-    active: { type: String, value: '' },
+    active: { type: null, value: '' },
     navItems: { type: Array, value: [] },
     reducedMotion: { type: Boolean, value: false }
   },

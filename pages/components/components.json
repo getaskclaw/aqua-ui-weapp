@@ -1,3 +1,13 @@
 {
-  "navigationBarTitleText": "组件陈列"
+  "navigationBarTitleText": "组件陈列",
+  "usingComponents": {
+    "bd-button": "/components/bd-button/bd-button",
+    "bd-card": "/components/bd-card/bd-card",
+    "bd-chip": "/components/bd-chip/bd-chip",
+    "bd-dock": "/components/dock/dock",
+    "bd-empty-state": "/components/bd-empty-state/bd-empty-state",
+    "bd-field": "/components/bd-field/bd-field",
+    "bd-list-row": "/components/bd-list-row/bd-list-row",
+    "bd-skeleton": "/components/bd-skeleton/bd-skeleton"
+  }
 }

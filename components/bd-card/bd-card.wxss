@@ -9,8 +9,6 @@
 
 .bd-card-glass {
   background: linear-gradient(145deg, rgba(255,255,255,.90), rgba(241,251,251,.82));
-  -webkit-backdrop-filter: blur(20px) saturate(1.25);
-  backdrop-filter: blur(20px) saturate(1.25);
   border: 1rpx solid rgba(255,255,255,.9);
   box-shadow: 0 18rpx 54rpx rgba(5,48,65,.09), inset 0 1rpx 0 rgba(255,255,255,.94);
 }

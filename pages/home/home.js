@@ -5,6 +5,7 @@ const { NAV_ITEMS } = require('../../utils/nav')
 Page({
   data: {
     topInset: 24,
+    reducedMotion: false,
     navItems: NAV_ITEMS,
     metrics: [
       { value: '55', label: '原生组件', note: '零依赖' },
@@ -20,7 +21,7 @@ Page({
 
   onLoad() {
     const app = getApp()
-    this.setData({ topInset: app.globalData.statusBarHeight })
+    this.setData({ topInset: app.globalData.statusBarHeight, reducedMotion: Boolean(app.globalData.reducedMotion) })
   },
 
   openComponents() {

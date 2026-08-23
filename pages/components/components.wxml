@@ -1,4 +1,4 @@
-<bd-page chrome title="组件陈列" subtitle="十一个原生组件" topInset="{{topInset}}" dockSpace>
+<bd-page chrome title="组件陈列" subtitle="十一个原生组件" topInset="{{topInset}}" dockSpace reducedMotion="{{reducedMotion}}">
   <view slot="chrome" class="count-badge">11 / 11</view>
 
   <view class="intro">
@@ -67,5 +67,5 @@
     </bd-card>
   </view>
 
-  <bd-dock active="components" navItems="{{navItems}}" />
+  <bd-dock active="components" navItems="{{navItems}}" reducedMotion="{{reducedMotion}}" />
 </bd-page>

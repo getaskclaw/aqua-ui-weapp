@@ -1,3 +1,11 @@
 {
-  "navigationBarTitleText": "视觉实验室"
+  "navigationBarTitleText": "视觉实验室",
+  "usingComponents": {
+    "bd-card": "/components/bd-card/bd-card",
+    "bd-chip": "/components/bd-chip/bd-chip",
+    "bd-dock": "/components/dock/dock",
+    "bd-icon": "/components/bd-icon/bd-icon",
+    "bd-list-row": "/components/bd-list-row/bd-list-row",
+    "bd-photo-uploader": "/components/bd-photo-uploader/bd-photo-uploader"
+  }
 }

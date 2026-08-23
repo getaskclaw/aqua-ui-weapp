@@ -11,8 +11,18 @@ const {
   mergePhotos,
   removeAt,
   needsCompression,
-  oversizeToast
+  oversizeToast,
+  persistenceToast,
+  mapWithConcurrency
 } = require('../../utils/photo-uploader')
+
+const PERSIST_CONCURRENCY = 2
+let fileSequence = 0
+
+function extensionFor(path) {
+  const match = String(path || '').match(/\.([a-zA-Z0-9]{1,5})(?:[?#].*)?$/)
+  return match ? `.${match[1].toLowerCase()}` : '.jpg'
+}
 
 Component({
   properties: {
@@ -37,6 +47,11 @@ Component({
     }
   },
 
+  lifetimes: {
+    attached() { this._attached = true },
+    detached() { this._attached = false }
+  },
+
   methods: {
     addPhotos() {
       if (this.data.disabled || this.data.busy) return
@@ -50,33 +65,52 @@ Component({
         sourceType: ['camera', 'album'],
         success: async (result) => {
           const fs = wx.getFileSystemManager()
-          const saved = []
-          let oversized = 0
           try {
-            for (const file of result.tempFiles) {
+            const outcomes = await mapWithConcurrency(result.tempFiles || [], PERSIST_CONCURRENCY, async (file) => {
               const usable = await this.fitUnderLimit(file.tempFilePath, file.size)
-              if (!usable) {
-                oversized += 1
-                continue
-              }
+              if (!usable) return { status: 'oversized' }
+              const target = `${wx.env.USER_DATA_PATH}/aqua-ui-${Date.now()}-${fileSequence++}${extensionFor(usable)}`
               try {
-                const target = `${wx.env.USER_DATA_PATH}/aqua-ui-${Date.now()}-${saved.length}.img`
-                fs.copyFileSync(usable, target)
-                saved.push(target)
+                await this.persistFile(fs, usable, target)
+                return { status: 'saved', path: target }
               } catch (error) {
-                saved.push(usable)
+                return { status: 'failed', error }
               }
+            })
+            const saved = outcomes.filter((item) => item.status === 'saved').map((item) => item.path)
+            const oversized = outcomes.filter((item) => item.status === 'oversized').length
+            const failed = outcomes.filter((item) => item.status === 'failed').length
+
+            if (!this._attached) {
+              this.cleanupFiles(fs, saved)
+              return
             }
             const merged = mergePhotos(this.data.photos, saved, this.data.max)
+            const unused = saved.filter((path) => merged.photos.indexOf(path) < 0)
+            if (unused.length) this.cleanupFiles(fs, unused)
             this._emit(merged.photos)
             const dropped = oversized + merged.overflow
             if (dropped) wx.showToast({ title: oversizeToast(dropped), icon: 'none', duration: 2500 })
+            if (failed) {
+              wx.showToast({ title: persistenceToast(failed), icon: 'none', duration: 2500 })
+              this.triggerEvent('error', { stage: 'persist', count: failed })
+            }
           } finally {
-            this.setData({ busy: false })
+            if (this._attached) this.setData({ busy: false })
           }
         },
-        fail: () => this.setData({ busy: false })
+        fail: () => { if (this._attached) this.setData({ busy: false }) }
       })
+    },
+
+    persistFile(fs, srcPath, destPath) {
+      return new Promise((resolve, reject) => {
+        fs.copyFile({ srcPath, destPath, success: resolve, fail: reject })
+      })
+    },
+
+    cleanupFiles(fs, paths) {
+      paths.forEach((filePath) => fs.unlink({ filePath, fail: () => {} }))
     },
 
     // 超 10 MiB 先压缩再复检;仍超限返回 null,由调用方跳过并提示。

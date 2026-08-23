@@ -1,4 +1,4 @@
-<bd-page chrome title="交互控件" subtitle="输入 · 选择 · 数据" topInset="{{topInset}}" dockSpace>
+<bd-page chrome title="交互控件" subtitle="输入 · 选择 · 数据" topInset="{{topInset}}" dockSpace reducedMotion="{{reducedMotion}}">
   <view slot="chrome" class="control-count">17 项</view>
 
   <view class="control-intro">
@@ -64,10 +64,10 @@
   <view class="control-section last-control-section">
     <view class="control-head"><view><view class="control-index">05</view><view class="section-title">搜索与切换</view></view><view class="control-note">信息导航</view></view>
     <bd-search value="{{searchValue}}" placeholder="搜索组件、令牌或图标" bindinput="onSearchInput" bindsearch="notify" />
-    <view class="control-block"><bd-segmented items="{{segments}}" active="{{segmentValue}}" bindchange="onSegment" /></view>
-    <view class="control-block"><bd-tabs items="{{tabs}}" active="{{tabValue}}" bindchange="onTab" /></view>
+    <view class="control-block"><bd-segmented items="{{segments}}" active="{{segmentValue}}" reducedMotion="{{reducedMotion}}" bindchange="onSegment" /></view>
+    <view class="control-block"><bd-tabs items="{{tabs}}" active="{{tabValue}}" reducedMotion="{{reducedMotion}}" bindchange="onTab" /></view>
   </view>
 
   <bd-fab text="新建" icon="plus" bottom="{{176}}" bindtap="notify" />
-  <bd-dock active="controls" navItems="{{navItems}}" />
+  <bd-dock active="controls" navItems="{{navItems}}" reducedMotion="{{reducedMotion}}" />
 </bd-page>

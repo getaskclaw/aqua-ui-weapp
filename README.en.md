@@ -35,6 +35,8 @@ Fifty-five reusable native components are included. In addition to the original 
 
 Copy `components/`, `utils/`, and `styles/tokens.wxss` into an existing MiniProgram, import the tokens once from `app.wxss`, then register the components you use.
 
+`bd-input`, `bd-search`, `bd-slider`, and `bd-tabs` are controlled components: handle their input/change event and write the emitted `value` or `active` key back from the owner. Selection identifiers preserve either string or numeric scalar types. Pass one application-owned `reducedMotion` value to every `bd-page` and to overlay composites so transitions shorten and infinite indicators pause consistently.
+
 ```xml
 <bd-card tone="ocean" title="Signature surface" subtitle="Put key information here">
   <bd-button shape="pill">Get started</bd-button>

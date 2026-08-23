@@ -1,1 +1,22 @@
-{"navigationBarTitleText":"反馈与浮层"}
+{
+  "navigationBarTitleText": "反馈与浮层",
+  "usingComponents": {
+    "bd-accordion": "/components/bd-accordion/bd-accordion",
+    "bd-action-sheet": "/components/bd-action-sheet/bd-action-sheet",
+    "bd-alert": "/components/bd-alert/bd-alert",
+    "bd-button": "/components/bd-button/bd-button",
+    "bd-card": "/components/bd-card/bd-card",
+    "bd-chip": "/components/bd-chip/bd-chip",
+    "bd-countdown": "/components/bd-countdown/bd-countdown",
+    "bd-divider": "/components/bd-divider/bd-divider",
+    "bd-dock": "/components/dock/dock",
+    "bd-loading": "/components/bd-loading/bd-loading",
+    "bd-modal": "/components/bd-modal/bd-modal",
+    "bd-notice": "/components/bd-notice/bd-notice",
+    "bd-result": "/components/bd-result/bd-result",
+    "bd-steps": "/components/bd-steps/bd-steps",
+    "bd-switch": "/components/bd-switch/bd-switch",
+    "bd-timeline": "/components/bd-timeline/bd-timeline",
+    "bd-tooltip": "/components/bd-tooltip/bd-tooltip"
+  }
+}

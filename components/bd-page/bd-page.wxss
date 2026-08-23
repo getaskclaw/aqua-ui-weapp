@@ -24,8 +24,6 @@
   padding: 12rpx 20rpx 12rpx 24rpx;
   color: var(--ink);
   background: linear-gradient(145deg, rgba(255,255,255,.82), rgba(238,250,250,.66));
-  -webkit-backdrop-filter: blur(26px) saturate(1.55);
-  backdrop-filter: blur(26px) saturate(1.55);
   border: 1rpx solid var(--glass-edge);
   border-radius: 34rpx;
   box-shadow:

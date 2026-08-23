@@ -1,1 +1,25 @@
-{"navigationBarTitleText":"交互控件"}
+{
+  "navigationBarTitleText": "交互控件",
+  "usingComponents": {
+    "bd-avatar": "/components/bd-avatar/bd-avatar",
+    "bd-badge": "/components/bd-badge/bd-badge",
+    "bd-card": "/components/bd-card/bd-card",
+    "bd-check": "/components/bd-check/bd-check",
+    "bd-divider": "/components/bd-divider/bd-divider",
+    "bd-dock": "/components/dock/dock",
+    "bd-fab": "/components/bd-fab/bd-fab",
+    "bd-grid": "/components/bd-grid/bd-grid",
+    "bd-icon": "/components/bd-icon/bd-icon",
+    "bd-pagination": "/components/bd-pagination/bd-pagination",
+    "bd-progress": "/components/bd-progress/bd-progress",
+    "bd-radio": "/components/bd-radio/bd-radio",
+    "bd-rate": "/components/bd-rate/bd-rate",
+    "bd-search": "/components/bd-search/bd-search",
+    "bd-segmented": "/components/bd-segmented/bd-segmented",
+    "bd-slider": "/components/bd-slider/bd-slider",
+    "bd-stat": "/components/bd-stat/bd-stat",
+    "bd-stepper": "/components/bd-stepper/bd-stepper",
+    "bd-switch": "/components/bd-switch/bd-switch",
+    "bd-tabs": "/components/bd-tabs/bd-tabs"
+  }
+}

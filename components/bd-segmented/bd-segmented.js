@@ -4,7 +4,7 @@ Component({
   options: { styleIsolation: 'apply-shared' },
   properties: {
     items: { type: Array, value: [] },
-    active: { type: String, value: '' },
+    active: { type: null, value: '' },
     disabled: { type: Boolean, value: false },
     reducedMotion: { type: Boolean, value: false }
   },

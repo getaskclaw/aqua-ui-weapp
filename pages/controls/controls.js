@@ -5,6 +5,7 @@ const { NAV_ITEMS } = require('../../utils/nav')
 Page({
   data: {
     topInset: 24,
+    reducedMotion: false,
     navItems: NAV_ITEMS,
     searchValue: '',
     radioValue: 'all',
@@ -38,7 +39,8 @@ Page({
   },
 
   onLoad() {
-    this.setData({ topInset: getApp().globalData.statusBarHeight })
+    const app = getApp()
+    this.setData({ topInset: app.globalData.statusBarHeight, reducedMotion: Boolean(app.globalData.reducedMotion) })
   },
 
   onSearchInput(event) { this.setData({ searchValue: event.detail.value }) },

@@ -40,6 +40,27 @@ function oversizeToast(count) {
   return `${count} 张照片压缩后仍超过 10 MB，已跳过`
 }
 
+function persistenceToast(count) {
+  return `${count} 张照片保存失败，已跳过`
+}
+
+async function mapWithConcurrency(items, limit, worker) {
+  const source = Array.isArray(items) ? items : []
+  const concurrency = Math.max(1, Math.min(source.length || 1, Number(limit) || 1))
+  const results = new Array(source.length)
+  let cursor = 0
+
+  async function run() {
+    while (cursor < source.length) {
+      const index = cursor++
+      results[index] = await worker(source[index], index)
+    }
+  }
+
+  await Promise.all(Array.from({ length: concurrency }, run))
+  return results
+}
+
 module.exports = {
   MAX_PHOTOS,
   MAX_PHOTO_BYTES,
@@ -49,5 +70,7 @@ module.exports = {
   mergePhotos,
   removeAt,
   needsCompression,
-  oversizeToast
+  oversizeToast,
+  persistenceToast,
+  mapWithConcurrency
 }

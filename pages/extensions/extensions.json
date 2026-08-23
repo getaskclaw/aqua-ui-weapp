@@ -1,1 +1,25 @@
-{"navigationBarTitleText":"业务扩展"}
+{
+  "navigationBarTitleText": "业务扩展",
+  "usingComponents": {
+    "bd-button": "/components/bd-button/bd-button",
+    "bd-calendar": "/components/bd-calendar/bd-calendar",
+    "bd-card": "/components/bd-card/bd-card",
+    "bd-carousel": "/components/bd-carousel/bd-carousel",
+    "bd-cell-group": "/components/bd-cell-group/bd-cell-group",
+    "bd-datetime-picker": "/components/bd-datetime-picker/bd-datetime-picker",
+    "bd-goods-action": "/components/bd-goods-action/bd-goods-action",
+    "bd-image": "/components/bd-image/bd-image",
+    "bd-input": "/components/bd-input/bd-input",
+    "bd-list-row": "/components/bd-list-row/bd-list-row",
+    "bd-notice": "/components/bd-notice/bd-notice",
+    "bd-picker": "/components/bd-picker/bd-picker",
+    "bd-popup": "/components/bd-popup/bd-popup",
+    "bd-product-card": "/components/bd-product-card/bd-product-card",
+    "bd-region-picker": "/components/bd-region-picker/bd-region-picker",
+    "bd-sidebar": "/components/bd-sidebar/bd-sidebar",
+    "bd-sku-selector": "/components/bd-sku-selector/bd-sku-selector",
+    "bd-sticky": "/components/bd-sticky/bd-sticky",
+    "bd-submit-bar": "/components/bd-submit-bar/bd-submit-bar",
+    "bd-toast": "/components/bd-toast/bd-toast"
+  }
+}

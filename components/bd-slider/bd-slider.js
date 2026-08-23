@@ -13,11 +13,9 @@ Component({
   },
   methods: {
     changing(event) {
-      this.setData({ value: event.detail.value })
       this.triggerEvent('changing', { value: event.detail.value })
     },
     change(event) {
-      this.setData({ value: event.detail.value })
       this.triggerEvent('change', { value: event.detail.value })
     }
   }

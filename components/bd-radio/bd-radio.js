@@ -4,7 +4,7 @@ Component({
   options: { styleIsolation: 'apply-shared' },
   properties: {
     items: { type: Array, value: [] },
-    value: { type: String, value: '' },
+    value: { type: null, value: '' },
     direction: { type: String, value: 'vertical' },
     disabled: { type: Boolean, value: false }
   },

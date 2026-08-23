@@ -1,6 +1,6 @@
-<bd-popup visible="{{visible}}" title="{{title}}" bindclose="close">
+<bd-popup visible="{{visible}}" title="{{title}}" reducedMotion="{{reducedMotion}}" bindclose="close">
   <scroll-view class="bd-picker-list" scroll-y>
     <view wx:for="{{normalized}}" wx:key="value" class="bd-picker-option {{item.value === draft ? 'bd-picker-active' : ''}} {{item.disabled ? 'bd-picker-disabled' : ''}}" data-index="{{index}}" bindtap="choose"><text>{{item.label}}</text><text wx:if="{{item.value === draft}}" class="bd-picker-check">✓</text></view>
   </scroll-view>
-  <view class="bd-picker-action"><bd-button size="md" bindtap="confirm">{{confirmText}}</bd-button></view>
+  <view class="bd-picker-action"><bd-button size="md" disabled="{{!canConfirm}}" bindtap="confirm">{{confirmText}}</bd-button></view>
 </bd-popup>

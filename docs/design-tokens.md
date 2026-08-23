@@ -55,5 +55,6 @@ Polar Ocean 的目标不是“更多渐变”，而是用稳定的色彩角色�
 | `--motion-overlay` | `240ms` | 对话框、浮层和操作面板 |
 | `--ease-aqua` | `cubic-bezier(.2,.8,.2,1)` | 进入和状态连续性 |
 | `--ease-aqua-exit` | `cubic-bezier(.4,0,1,1)` | 退出 |
+| `--motion-play-state` | `running` | 循环加载与骨架动效的统一开关 |
 
-页面根节点添加 `.aqua-reduced-motion` 后，继承的时长会缩短为 `1ms`。有 JavaScript 退出计时的浮层还需要同步传入 `reducedMotion`，完整规则见 [动效规范](motion-guidelines.md)。
+页面根节点添加 `.aqua-reduced-motion` 后，继承的时长会缩短为 `1ms`，循环动效会暂停。有 JavaScript 退出计时的浮层还需要同步传入 `reducedMotion`，完整规则见 [动效规范](motion-guidelines.md)。

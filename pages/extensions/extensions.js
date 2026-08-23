@@ -5,6 +5,7 @@ const { showToast, hideToast } = require('../../utils/toast')
 Page({
   data: {
     topInset: 24,
+    reducedMotion: false,
     note: '周末配送前请电话联系',
     popupVisible: false,
     pickerVisible: false,
@@ -43,7 +44,10 @@ Page({
     ]
   },
 
-  onLoad() { this.setData({ topInset: getApp().globalData.statusBarHeight }) },
+  onLoad() {
+    const app = getApp()
+    this.setData({ topInset: app.globalData.statusBarHeight, reducedMotion: Boolean(app.globalData.reducedMotion) })
+  },
   inputNote(event) { this.setData({ note: event.detail.value }) },
   sidebarChange(event) { this.setData({ sidebarActive: event.detail.key }) },
   calendarChange(event) { this.setData({ selectedDate: event.detail.value }) },

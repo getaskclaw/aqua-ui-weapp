@@ -1,3 +1,11 @@
 {
-  "navigationBarTitleText": "水境组件库"
+  "navigationBarTitleText": "水境组件库",
+  "usingComponents": {
+    "bd-button": "/components/bd-button/bd-button",
+    "bd-card": "/components/bd-card/bd-card",
+    "bd-chip": "/components/bd-chip/bd-chip",
+    "bd-dock": "/components/dock/dock",
+    "bd-icon": "/components/bd-icon/bd-icon",
+    "bd-list-row": "/components/bd-list-row/bd-list-row"
+  }
 }

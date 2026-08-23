@@ -1,4 +1,4 @@
-<bd-page chrome title="水境组件库" subtitle="极地海洋 · 二〇二六" topInset="{{topInset}}" dockSpace>
+<bd-page chrome title="水境组件库" subtitle="极地海洋 · 二〇二六" topInset="{{topInset}}" dockSpace reducedMotion="{{reducedMotion}}">
   <view slot="chrome" class="live-pill"><view class="live-dot"></view>原生运行</view>
 
   <view class="hero">
@@ -50,5 +50,5 @@
     </block>
   </bd-card>
 
-  <bd-dock active="home" navItems="{{navItems}}" />
+  <bd-dock active="home" navItems="{{navItems}}" reducedMotion="{{reducedMotion}}" />
 </bd-page>

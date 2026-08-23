@@ -19,12 +19,10 @@ Component({
   methods: {
     input(event) {
       const value = event.detail.value
-      this.setData({ value })
       this.triggerEvent('input', { value })
     },
     clear() {
       if (this.data.disabled) return
-      this.setData({ value: '' })
       this.triggerEvent('input', { value: '' })
       this.triggerEvent('clear')
     },

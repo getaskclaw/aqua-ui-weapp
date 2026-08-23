@@ -1,6 +1,6 @@
 # Aqua UI WeApp Motion Guidelines
 
-Status: implemented; real-device profiling remains
+Status: implementation complete; real-device profiling remains
 Updated: 2026-08-23
 
 ## Decision
@@ -19,28 +19,28 @@ This follows Apple's Liquid Glass direction: the material is dynamic, but should
 
 ## Implementation status
 
-The codebase now implements the first five rollout stages:
+The codebase implements the core of the first five rollout stages:
 
 - shared duration and easing tokens live in `styles/tokens.wxss`;
-- `.aqua-reduced-motion` shortens inherited transitions, and animated components expose a `reducedMotion` property;
+- `.aqua-reduced-motion` shortens inherited token-based transitions, and the primary overlay/selection components expose a `reducedMotion` property;
 - `bd-modal`, `bd-popup`, and `bd-action-sheet` keep an internal presentation state for interruptible entrance and exit motion;
 - `bd-tabs`, `bd-segmented`, and `bd-dock` use one transform-driven selection indicator;
 - `bd-accordion`, `bd-result`, and `bd-photo-uploader` provide restrained state feedback;
 - all `transition: all` declarations have been replaced with explicit property lists;
 - the animated overlays use solid translucent scrims and near-opaque surfaces instead of live backdrop blur.
 
-The Feedback showroom page includes a **减少动态效果** switch for exercising the reduced-motion path. Automated tests cover closing, reopening during exit, repeated visibility changes, and reduced-motion dismissal. Real-device compositor profiling is still required before release.
+The Feedback showroom page includes a **减少动态效果** switch backed by one application-owned value. Every page root reads that value, popup-based composites forward it, and infinite loading/skeleton indicators pause through `--motion-play-state`. Automated tests cover overlay reversal and dismissal, page/composite propagation, and infinite-animation coverage. Real-device compositor profiling is still required before release.
 
 ## Current baseline
 
 Aqua UI already includes useful motion:
 
 - 140–180 ms press and selection transitions on buttons, cards, list rows, switches, checks, radios, and the dock;
-- a 240 ms progress-width transition;
+- a transform-driven 200 ms progress transition;
 - accordion-arrow rotation;
 - loading, image-loading, submit, and skeleton indicators.
 
-This is a reasonable baseline. New work should focus on abrupt state changes rather than adding animation to every component.
+Progress uses `scaleX`, and the skeleton uses one transform-driven shimmer for the complete surface instead of one repainting gradient per block. The code baseline is ready for device profiling; see PERF-6 and PERF-7 in the [critical issues audit](critical-issues-audit.md).
 
 ## Recommended additions
 
@@ -107,7 +107,7 @@ Avoid animating:
 
 Replace existing `transition: all` declarations with explicit property lists before expanding the motion system.
 
-Aqua UI currently has 18 standard `backdrop-filter` declarations, including fixed, sticky, and full-screen surfaces. Do not animate or continuously move these blurred layers until real-device profiling establishes a safe compositor budget. Details are in [PERF-2 of the critical issues audit](critical-issues-audit.md#perf-2--p1-risk--fixed-sticky-and-full-screen-layers-stack-expensive-backdrop-filters).
+Aqua UI now retains one standard `backdrop-filter` declaration on the fixed dock. Other glass surfaces use opaque or near-opaque fills. Do not add another large live-blur surface until real-device profiling establishes a safe compositor budget. Details are in [PERF-2 of the critical issues audit](critical-issues-audit.md).
 
 ## Accessibility and user control
 

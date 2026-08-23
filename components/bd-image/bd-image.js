@@ -12,11 +12,28 @@ Component({
     lazyLoad: { type: Boolean, value: true },
     showLoading: { type: Boolean, value: true }
   },
-  data: { loading: true, failed: false },
-  observers: { src() { this.setData({ loading: true, failed: false }) } },
+  data: { renderedSrc: '', loading: false, failed: false },
+  observers: {
+    src(value) {
+      this.setData({ renderedSrc: '', loading: Boolean(value), failed: false }, () => {
+        if (!value) return
+        wx.nextTick(() => {
+          if (this.data.src === value) this.setData({ renderedSrc: value })
+        })
+      })
+    }
+  },
   methods: {
-    loaded(event) { this.setData({ loading: false, failed: false }); this.triggerEvent('load', event.detail) },
-    failed(event) { this.setData({ loading: false, failed: true }); this.triggerEvent('error', event.detail) },
+    loaded(event) {
+      if (event.currentTarget.dataset.src !== this.data.renderedSrc) return
+      this.setData({ loading: false, failed: false })
+      this.triggerEvent('load', event.detail)
+    },
+    failed(event) {
+      if (event.currentTarget.dataset.src !== this.data.renderedSrc) return
+      this.setData({ loading: false, failed: true })
+      this.triggerEvent('error', event.detail)
+    },
     tap() { this.triggerEvent('tap', { src: this.data.src }) }
   }
 })

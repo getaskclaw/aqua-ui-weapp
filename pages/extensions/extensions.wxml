@@ -1,4 +1,4 @@
-<bd-page chrome title="业务扩展" subtitle="商城审计补全" topInset="{{topInset}}">
+<bd-page chrome title="业务扩展" subtitle="商城审计补全" topInset="{{topInset}}" reducedMotion="{{reducedMotion}}">
   <view slot="chrome" class="extension-count">新增十六项</view>
 
   <view class="extension-intro"><view class="eyebrow">真实业务覆盖</view><view class="extension-title">从基础控件，走到完整交易界面。</view><view class="extension-copy">这些组件来自商城审计中的高频缺口，仍保持原生、轻量与可组合。</view></view>
@@ -39,8 +39,8 @@
 
   <view class="extension-section last-extension-section"><view class="section-title">浮层与消息</view><view class="extension-actions"><bd-button size="md" bindtap="openPopup">打开通用浮层</bd-button><bd-button variant="ghost" size="md" bindtap="notify">显示轻提示</bd-button></view></view>
 
-  <bd-popup visible="{{popupVisible}}" position="center" title="通用浮层" bindclose="closePopup"><view class="popup-demo-copy">居中、顶部与底部位置共用同一套清晰的遮罩与关闭行为。</view><bd-button size="md" bindtap="closePopup">知道了</bd-button></bd-popup>
-  <bd-picker visible="{{pickerVisible}}" title="配送方式" options="{{pickerOptions}}" value="{{pickerValue}}" bindcancel="closePicker" bindconfirm="pickerConfirm" />
-  <bd-sku-selector visible="{{skuVisible}}" image="/docs/screenshots/shop-detail.png" price="268.00" groups="{{skuGroups}}" selected="{{skuSelected}}" bindcancel="closeSku" bindconfirm="skuConfirm" />
+  <bd-popup visible="{{popupVisible}}" position="center" title="通用浮层" reducedMotion="{{reducedMotion}}" bindclose="closePopup"><view class="popup-demo-copy">居中、顶部与底部位置共用同一套清晰的遮罩与关闭行为。</view><bd-button size="md" bindtap="closePopup">知道了</bd-button></bd-popup>
+  <bd-picker visible="{{pickerVisible}}" title="配送方式" options="{{pickerOptions}}" value="{{pickerValue}}" reducedMotion="{{reducedMotion}}" bindcancel="closePicker" bindconfirm="pickerConfirm" />
+  <bd-sku-selector visible="{{skuVisible}}" image="/docs/screenshots/shop-detail.png" price="268.00" groups="{{skuGroups}}" selected="{{skuSelected}}" reducedMotion="{{reducedMotion}}" bindcancel="closeSku" bindconfirm="skuConfirm" />
   <bd-toast visible="{{bdToast.visible}}" message="{{bdToast.message}}" semantic="{{bdToast.semantic}}" position="{{bdToast.position}}" mask="{{bdToast.mask}}" bindclose="closeToast" />
 </bd-page>

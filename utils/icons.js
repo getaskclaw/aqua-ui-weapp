@@ -12,6 +12,9 @@
 'use strict'
 
 const DEFAULT_COLOR = '#607b86' // var(--ink-3)
+const DATA_URI_CACHE = Object.create(null)
+const DATA_URI_CACHE_KEYS = []
+const MAX_DATA_URI_CACHE = 256
 
 const ICONS = {
   // ---- 页面/场景 ----
@@ -109,9 +112,20 @@ function base64Encode(text) {
 
 // 渲染入口:<image src> 可直接吃 base64 SVG data URI。
 function iconDataUri(name, color = DEFAULT_COLOR) {
+  const key = `${name}\u0000${color}`
+  if (Object.prototype.hasOwnProperty.call(DATA_URI_CACHE, key)) return DATA_URI_CACHE[key]
   const svg = iconSvg(name, color)
-  if (svg === null) return null
-  return `data:image/svg+xml;base64,${base64Encode(svg)}`
+  const uri = svg === null ? null : `data:image/svg+xml;base64,${base64Encode(svg)}`
+  if (DATA_URI_CACHE_KEYS.length >= MAX_DATA_URI_CACHE) delete DATA_URI_CACHE[DATA_URI_CACHE_KEYS.shift()]
+  DATA_URI_CACHE[key] = uri
+  DATA_URI_CACHE_KEYS.push(key)
+  return uri
 }
 
-module.exports = { ICONS, DEFAULT_COLOR, iconNames, hasIcon, iconSvg, iconDataUri, base64Encode }
+function iconCacheSize() { return Object.keys(DATA_URI_CACHE).length }
+function clearIconCache() {
+  Object.keys(DATA_URI_CACHE).forEach((key) => delete DATA_URI_CACHE[key])
+  DATA_URI_CACHE_KEYS.length = 0
+}
+
+module.exports = { ICONS, DEFAULT_COLOR, iconNames, hasIcon, iconSvg, iconDataUri, base64Encode, iconCacheSize, clearIconCache }

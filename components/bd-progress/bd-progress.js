@@ -10,11 +10,11 @@ Component({
     semantic: { type: String, value: 'primary' },
     size: { type: String, value: 'normal' }
   },
-  data: { percent: 0 },
+  data: { percent: 0, fillStyle: 'transform:scaleX(0)' },
   observers: {
     'value, max': function (value, max) {
       const percent = max > 0 ? Math.max(0, Math.min(100, Math.round(value / max * 100))) : 0
-      this.setData({ percent })
+      this.setData({ percent, fillStyle: `transform:scaleX(${percent / 100})` })
     }
   }
 })
