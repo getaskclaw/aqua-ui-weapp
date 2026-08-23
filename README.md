@@ -14,13 +14,15 @@ Liquid Glass 浅底版微信小程序原生组件库——零依赖、零构建�
 - **亮青关在笼子里**:`#13ecf3` 只许出现在藏青 `#162455` 底上（压白底 1.6:1 残废，压藏青 12:1)
 - **语义色稳定**：确认绿/待办橙/危险红跨端一致
 
-## 实机陈列（kitchen sink，真机模拟器实拍）
+## 实机效果（电商示例 aqua-shop-weapp，真机模拟器实拍）
 
-![按钮:三主题×尺寸×加载/禁用](docs/screenshots/kitchen-sink-buttons.png)
+![商城首页——搜索/Banner/推荐位 + 悬浮 dock](docs/screenshots/shop-index.png)
 
-![卡片/列表行/语义徽标/图标集](docs/screenshots/kitchen-sink-cards-chips-icons.png)
+![商品详情](docs/screenshots/shop-detail.png)
 
-![表单域/上传(空态+满员禁用)/骨架屏](docs/screenshots/kitchen-sink-fields-uploader.png)
+![购物车空态——bd-empty-state + dock 选中态跟页](docs/screenshots/shop-cart.png)
+
+![会员中心——会员卡/资产/订单入口](docs/screenshots/shop-my.png)
 
 ## 快速开始
 
