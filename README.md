@@ -1,4 +1,4 @@
-# Aqua Glass WeApp
+# Aqua UI WeApp
 
 Liquid Glass 浅底版微信小程序原生组件库 —— 零依赖、零构建、纯 WXML Component。
 

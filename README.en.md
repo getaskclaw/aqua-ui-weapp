@@ -1,4 +1,4 @@
-# Aqua Glass WeApp
+# Aqua UI WeApp
 
 A zero-dependency WeChat MiniProgram component library with a light Liquid Glass aesthetic — frosted-glass cards, aqua gradient mesh backgrounds, and a floating capsule dock. Pure WXML Components: no Tailwind, no build step, copy `components/` and go.
 
